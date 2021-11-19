@@ -1,0 +1,17 @@
+news page  
+coin market - pagination
+coin market - filters
+upvote downvote system
+coin market - tabular view
+otp verification in login
+add note feature in coin card
+better logic for fetching favourite details
+number of saved coin refetch onClicking favourite button
+coin page - truncate description
+coin market - symbol position on longer names
+search bar
+coin page - links
+coingecko events 
+improve clicking on card to open details
+liv icons
+jwt and user to cryptoWizJWT and cryptoWizUSER
