@@ -1,4 +1,5 @@
 # crypto-wiz
 
-Use ### npm run Client to start Frontend 
-Use ### npm run Server to start Backend 
+To start Frontend, Use ### `npm run Client` 
+To start Backend, Use ### `npm run Server`
+So You won't have change directories
