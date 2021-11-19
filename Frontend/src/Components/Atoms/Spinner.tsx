@@ -13,7 +13,7 @@ const Spinner: React.FC<IProps> = ({
 }) => {
   return (
     <>
-      <div className="flex justify-center items-center z-50">
+      <div className="flex justify-center items-center">
         <i
           className={`bx bx-loader-alt bx-spin text-${height} text-${color} ${className}`}
         />

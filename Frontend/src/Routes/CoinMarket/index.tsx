@@ -17,29 +17,31 @@ const CoinMarket: React.FC<IProps> = ({ currency = "inr" }) => {
   const { data, loading, page } = states;
 
   return (
-    <div className="pt-20 bg-gray-200 flex flex-wrap items-start justify-center">
+    <div className="pt-20 bg-gray-200 flex flex-col flex-wrap items-center justify-center">
       <Filters setOrder={setOrder} setCategory={setCategory} />
       {loading ? (
         <Spinner height="4xl" className="my-64" />
       ) : data && data!.length > 0 ? (
-        data?.map(
-          (cardData: {
-            name: string | undefined;
-            image: string | undefined;
-            symbol: string | undefined;
-            id: string | undefined;
-            current_price: string | undefined;
-          }) => (
-            <CoinCard
-              currency={currency}
-              id={cardData.id}
-              name={cardData.name}
-              image={cardData.image}
-              symbol={cardData.symbol}
-              current_price={cardData.current_price}
-            />
-          )
-        )
+        <div className="flex flex flex-wrap items-center justify-center">
+          {data?.map(
+            (cardData: {
+              name: string | undefined;
+              image: string | undefined;
+              symbol: string | undefined;
+              id: string | undefined;
+              current_price: string | undefined;
+            }) => (
+              <CoinCard
+                currency={currency}
+                id={cardData.id}
+                name={cardData.name}
+                image={cardData.image}
+                symbol={cardData.symbol}
+                current_price={cardData.current_price}
+              />
+            )
+          )}
+        </div>
       ) : (
         <NoDataFetched
           errorMessage="No data fetched"
@@ -50,6 +52,7 @@ const CoinMarket: React.FC<IProps> = ({ currency = "inr" }) => {
           }}
         />
       )}
+      <hr className="w-4/5 h-0.5 bg-gray-300 color-black mt-2" />
       <PageButton
         setPage={setPage}
         page={page}

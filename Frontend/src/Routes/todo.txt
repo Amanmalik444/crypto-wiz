@@ -1,6 +1,4 @@
 news page  
-coin market - pagination
-coin market - filters
 upvote downvote system
 coin market - tabular view
 otp verification in login

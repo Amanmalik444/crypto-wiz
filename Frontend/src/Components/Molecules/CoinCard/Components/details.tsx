@@ -6,7 +6,7 @@ interface IProps {
   symbol: string | undefined;
   id: string | undefined;
   currency?: string | undefined;
-  current_price?: string | undefined;
+  current_price?: string | undefined | number;
   createdAt?: string | undefined;
 }
 
@@ -25,7 +25,7 @@ const Details = ({
       className="flex flex-col items-center justify-center
         backdrop-filter backdrop-blur-sm text-black
         bg-white hover:bg-gray-800 hover:text-white bg-opacity-50
-        py-3 w-52 rounded-md cursor-pointer"
+        p-3 w-52 rounded-md cursor-pointer"
       onClick={() => {
         history.push(`/coin/${id}`);
       }}
@@ -34,14 +34,14 @@ const Details = ({
         <p className="text-xl font-medium">{name}</p>
         <p className="text-xs font-small">{symbol}</p>
       </div>
-      {currency && current_price && (
+      {currency && (current_price || current_price === 0) && (
         <div>
           <p className="text-sm font-small">
             Current Price : {current_price} {currency}
           </p>
         </div>
       )}
-      {!current_price && (
+      {createdAt && (
         <div>
           <p className="text-sm font-small">
             Added {moment(createdAt).fromNow()}

@@ -77,7 +77,7 @@ const View: React.FC<IProps> = ({ userId = "" }) => {
         isOpen={openModal}
         toggle={closeModal}
       >
-        <ModalHeader toggle={closeModal} hr={false}>
+        <ModalHeader toggle={closeModal} hr={true}>
           <TabSwitch
             active={activeTab}
             setActive={setActiveTab}

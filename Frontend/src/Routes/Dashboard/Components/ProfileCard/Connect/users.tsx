@@ -85,7 +85,7 @@ const View: React.FC<IProps> = ({
         <div className="w-full flex flex-row justify-between items-center">
           <p
             className="text-xl truncate text-gray-600 w-20 
-          mr-3 border-r border-gray-300"
+          mr-3 border-r border-gray-300 capitalize"
           >
             {name}
           </p>

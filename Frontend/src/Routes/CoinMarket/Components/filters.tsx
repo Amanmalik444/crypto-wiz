@@ -1,6 +1,5 @@
 import * as React from "react";
 import Select from "react-select";
-import toast from "react-hot-toast";
 
 interface IProps {
   setOrder: any;
@@ -9,14 +8,70 @@ interface IProps {
 
 const Filters: React.FC<IProps> = ({ setOrder, setCategory }) => {
   const orderOptions = [
-    { label: "Market cap descending", value: "market_cap_desc" },
-    { label: "Market cap ascending", value: "market_cap_asc" },
-    { label: "Volume descending", value: "volume_desc" },
-    { label: "Volume ascending", value: "volume_asc" },
-    { label: "Gecko descending", value: "gecko_desc" },
-    { label: "Gecko ascending", value: "gecko_asc" },
-    { label: "Id descending", value: "id_desc" },
-    { label: "Id ascending", value: "id_asc" },
+    {
+      label: (
+        <p>
+          <i className="bx bx-down-arrow-alt" /> Volume
+        </p>
+      ),
+      value: "volume_desc",
+    },
+    {
+      label: (
+        <p>
+          <i className="bx bx-up-arrow-alt" /> Volume
+        </p>
+      ),
+      value: "volume_asc",
+    },
+    {
+      label: (
+        <p>
+          <i className="bx bx-down-arrow-alt" /> Market cap
+        </p>
+      ),
+      value: "market_cap_desc",
+    },
+    {
+      label: (
+        <p>
+          <i className="bx bx-up-arrow-alt" /> Market cap
+        </p>
+      ),
+      value: "market_cap_asc",
+    },
+    {
+      label: (
+        <p>
+          <i className="bx bx-down-arrow-alt" /> Id
+        </p>
+      ),
+      value: "id_desc",
+    },
+    {
+      label: (
+        <p>
+          <i className="bx bx-up-arrow-alt" /> Id
+        </p>
+      ),
+      value: "id_asc",
+    },
+    {
+      label: (
+        <p>
+          <i className="bx bx-down-arrow-alt" /> Gecko
+        </p>
+      ),
+      value: "gecko_desc",
+    },
+    {
+      label: (
+        <p>
+          <i className="bx bx-up-arrow-alt" /> Gecko
+        </p>
+      ),
+      value: "gecko_asc",
+    },
   ];
 
   const categories = [
@@ -118,7 +173,7 @@ const Filters: React.FC<IProps> = ({ setOrder, setCategory }) => {
     },
     {
       value: "cryptocurrency",
-      label: "Cryptocurrency",
+      label: "Crypto currency",
     },
     {
       value: "daomaker-ecosystem",
@@ -266,7 +321,7 @@ const Filters: React.FC<IProps> = ({ setOrder, setCategory }) => {
     },
     {
       value: "lending-borrowing",
-      label: "Lending/Borrowing",
+      label: "Lending / Borrowing",
     },
     {
       value: "leveraged-token",
@@ -528,23 +583,25 @@ const Filters: React.FC<IProps> = ({ setOrder, setCategory }) => {
         <Select
           onChange={(e) => {
             setOrder(e?.value);
-            toast.success(`Showing graph for ${e?.label}`);
           }}
           options={orderOptions}
           defaultValue={{
-            label: "Market cap descending",
+            label: (
+              <p>
+                <i className="bx bx-down-arrow-alt" /> Market cap
+              </p>
+            ),
             value: "market_cap_desc",
           }}
           theme={(theme) => ({
             ...theme,
-            borderRadius: 2,
+            borderRadius: 8,
           })}
           className="mx-3 my-2"
         />
         <Select
           onChange={(e) => {
             setCategory(e?.value);
-            toast.success(`Showing graph for ${e?.label}`);
           }}
           options={categories}
           defaultValue={{
@@ -553,7 +610,7 @@ const Filters: React.FC<IProps> = ({ setOrder, setCategory }) => {
           }}
           theme={(theme) => ({
             ...theme,
-            borderRadius: 2,
+            borderRadius: 8,
           })}
           className="mx-3 my-2"
         />

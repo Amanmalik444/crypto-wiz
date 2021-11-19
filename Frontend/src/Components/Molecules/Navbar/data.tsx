@@ -20,19 +20,24 @@ const useData = (history: IParams["history"]) => {
           toast.dismiss("status");
         } else {
           setStatus("Offline");
-          toast.success(`Servers Offline`);
+          toast.error(`Servers Offline`);
           toast.dismiss("status");
         }
       })
       .catch((err) => {
         setStatus("Offline");
-        toast.error(err.response.data);
+        toast.error(`Servers Offline`);
         toast.dismiss("status");
       });
   }, []);
 
   const Logout = () => {
-    toast.success(`${localStorage.getItem("jwt") ?'Logged Out':'Please login to continue'}`, { duration: 4000 });
+    toast.success(
+      `${
+        localStorage.getItem("jwt") ? "Logged Out" : "Please login to continue"
+      }`,
+      { duration: 4000 }
+    );
     history.push(`/`);
     localStorage.setItem("jwt", "");
     localStorage.setItem("user", "");

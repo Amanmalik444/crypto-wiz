@@ -23,35 +23,49 @@ const Filters: React.FC<IProps> = ({ setPage, page = 1, className = "" }) => {
   };
   return (
     <div
-      className={`w-full p-4 flex items-center justify-between border-gray-200 sm:px-6 ${className}`}
+      className={`w-full p-4 flex items-center justify-between 
+      border-gray-200 sm:px-6 ${className}`}
     >
-      <div className="flex-1 flex justify-between items-center sm:hidden">
+      <div className="text-sm font-medium text-gray-700 flex-1 flex justify-between items-center sm:hidden">
         <p
           onClick={previous}
-          className="cursor-pointer relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+          className="cursor-pointer bg-white hover:bg-gray-100 rounded-lg
+          px-4 py-2 border border-gray-300 hover:border-gray-400"
         >
           Previous
         </p>
-        <p className="text-gray-500 text-md font-medium">Page {page}</p>
+        <p className="cursor-default">Page {page}</p>
         <p
           onClick={next}
-          className="cursor-pointer ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+          className="cursor-pointer bg-white hover:bg-gray-100 rounded-lg
+          px-4 py-2 border border-gray-300 hover:border-gray-400"
         >
           Next
         </p>
       </div>
-      <div className="hidden sm:flex-1 sm:flex items-center justify-between">
-        <p className="text-sm text-gray-700">
+      <div className="hidden sm:flex-1 sm:flex flex-wrap items-end justify-between">
+        <p className="text-sm text-gray-700 m-4">
           Showing <b>{(page - 1) * 24 + 1}</b> to <b>{page * 24}</b> of{" "}
           <b>4,750</b> results
         </p>
         <nav
-          className="cursor-pointer bg-white relative z-0 inline-flex rounded-md shadow-sm -space-x-px text-gray-500 text-sm font-medium"
+          className="cursor-pointer bg-white relative flex flex-row
+          rounded-lg shadow-sm -space-x-px text-gray-500 text-sm font-medium m-4"
           aria-label="Pagination"
         >
           <i
+            onClick={() => {
+              page > 10
+                ? setPage(page - 10)
+                : toast.error("Choose a valid page");
+            }}
+            className="bx bx-chevrons-left text-2xl p-2 rounded-l-lg border 
+            border-gray-300 bg-white hover:bg-gray-100"
+          />
+          <i
             onClick={previous}
-            className="bx bx-chevron-left text-2xl p-2 rounded-l-md border border-gray-300 bg-white hover:bg-gray-100"
+            className="bx bx-chevron-left text-2xl p-2 border 
+            border-gray-300 bg-white hover:bg-gray-100"
           />
           <PageNumberIndicator
             page={page}
@@ -103,10 +117,17 @@ const Filters: React.FC<IProps> = ({ setPage, page = 1, className = "" }) => {
             numberToShow={pageRangeStart + 9}
             setPage={setPage}
           />
-
           <i
             onClick={next}
-            className="bx bx-chevron-right text-2xl p-2 rounded-r-md border border-gray-300 bg-white hover:bg-gray-100"
+            className="bx bx-chevron-right text-2xl p-2
+            border border-gray-300 bg-white hover:bg-gray-100"
+          />
+          <i
+            onClick={() => {
+              setPage(page + 10);
+            }}
+            className="bx bx-chevrons-right text-2xl p-2 rounded-r-lg 
+            border border-gray-300 bg-white hover:bg-gray-100"
           />
         </nav>
       </div>

@@ -13,9 +13,9 @@ const Modal: React.FC<IProps> = ({
   hr = true,
 }) => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center ml-2 p-3">
       <div
-        className={`flex flex-row justify-between items-center p-2 pl-3
+        className={`flex flex-row justify-between items-center
         bg-white text-2xl w-full
         rounded-tl-lg rounded-tr-lg ${className || ""}`}
       >
