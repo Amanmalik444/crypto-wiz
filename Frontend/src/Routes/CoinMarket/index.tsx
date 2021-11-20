@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import toast from "react-hot-toast";
 
-import { Spinner, NoDataFetched } from "../../Components/Atoms";
-import { CoinCard } from "../../Components/Molecules";
+import { Spinner, NoDataFetched } from "../../Components/Bricks";
+import { CoinCard } from "../../Components/Mansions";
 import Filters from "./Components/filters";
 import PageButton from "./Components/pageButton";
 import useData from "./data";

@@ -1,15 +1,10 @@
 import * as React from "react";
-import { Canvas } from "../../Components/Molecules/";
+import { Canvas } from "../../Components/Mansions";
 import Login from "./Components/LoginPage";
 import Register from "./Components/RegistrationPage";
 
-interface IState {
-  pageToShow: string;
-}
-
 const Credentials = () => {
-  const [pageToShow, setPageToShow] =
-    React.useState<IState["pageToShow"]>("login");
+  const [pageToShow, setPageToShow] = React.useState<string>("login");
 
   return (
     <div className="h-screen w-full flex justify-center items-center bg-gray-900 ">

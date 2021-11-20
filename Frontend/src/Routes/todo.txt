@@ -8,8 +8,9 @@ number of saved coin refetch onClicking favourite button
 coin page - truncate description
 coin market - symbol position on longer names
 search bar
-coin page - links
+coin page - links and platforms
 coingecko events 
 improve clicking on card to open details
 liv icons
 jwt and user to cryptoWizJWT and cryptoWizUSER
+create a data file in util for react select datas

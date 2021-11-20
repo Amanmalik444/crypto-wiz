@@ -2,7 +2,7 @@ import * as React from "react";
 import toast from "react-hot-toast";
 // import { useHistory } from "react-router-dom";
 
-import { Modal, ModalBody, ModalHeader } from "../../../Atoms";
+import { Modal, ModalBody, ModalHeader } from "../../../Bricks";
 
 interface IProps {
   coinName?: string;

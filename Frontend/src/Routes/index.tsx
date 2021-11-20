@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { Toast, Footer, ScrollButton } from "../Components/Atoms";
+import { Toast, Footer, ScrollButton } from "../Components/Bricks";
 import LandingPage from "./LandingPage";
 import Credentials from "./Credentials";
-import { Navbar } from "../Components/Molecules";
+import { Navbar } from "../Components/Mansions";
 import CoinMarket from "./CoinMarket";
-import DashPreview from "./Dashboard";
+import DashPreview from "./Dashboard/dashPreview";
 import News from "./News";
-import Coin from "./Coin";
+import CoinPage from "./CoinPage";
 
 const Routes = () => {
   return (
@@ -20,7 +20,7 @@ const Routes = () => {
         <Route path="/dashboard" exact component={DashPreview} />
         <Route path="/market" exact component={CoinMarket} />
         <Route path="/news" exact component={News} />
-        <Route path="/coin/:coinId" exact component={Coin} />
+        <Route path="/coin/:coinId" exact component={CoinPage} />
         <Route path="/credentials" exact component={Credentials} />
         <Route path="/" component={LandingPage} />
       </Switch>

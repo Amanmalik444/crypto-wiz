@@ -1,4 +1,4 @@
-import { TextData } from "../../../../Components/Atoms";
+import { TextData } from "../../../../Components/Bricks";
 
 interface IProps {
   coingecko_rank: string;

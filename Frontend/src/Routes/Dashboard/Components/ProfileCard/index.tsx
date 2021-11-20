@@ -1,5 +1,5 @@
 import moment from "moment";
-import Connect from "./Connect";
+import { Connect } from "../../../../Components/Mansions";
 
 interface IProps {
   coinsSaved?: number;
@@ -60,8 +60,13 @@ const ProfileCard: React.FC<IProps> = ({ coinsSaved = 0 }) => {
           <div className="flex w-full justify-between items-center flex-wrap pt-4 text-sm text-gray-600">
             <div className="flex w-full md:w-3/4 justify-between items-center">
               <div className="flex-1 inline-flex items-center">
-                <i className="bx bxs-star mr-2 text-lg cursor-pointer" onClick={scrollToFavourite}/>
-                <p className="cursor-pointer" onClick={scrollToFavourite}>{coinsSaved} Favourites</p>
+                <i
+                  className="bx bxs-star mr-2 text-lg cursor-pointer"
+                  onClick={scrollToFavourite}
+                />
+                <p className="cursor-pointer" onClick={scrollToFavourite}>
+                  {coinsSaved} Favourites
+                </p>
               </div>
               <div className="flex-1 inline-flex items-center">
                 <i className="bx bxs-user-plus mr-2 text-xl cursor-pointer" />
@@ -69,7 +74,7 @@ const ProfileCard: React.FC<IProps> = ({ coinsSaved = 0 }) => {
               </div>
             </div>
             <div>
-              <Connect userId={user._id} />
+              <Connect userId={user._id} defaultTab="Follow" />
             </div>
           </div>
         </div>

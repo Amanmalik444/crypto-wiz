@@ -1,6 +1,6 @@
 import moment from "moment";
 
-import { TextData } from "../../../../Components/Atoms";
+import { TextData } from "../../../../Components/Bricks";
 
 interface IProps {
   image: { large: string };

@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import ReactApexChart from "react-apexcharts";
 
 import useData from "./data";
-import { Spinner } from "../../../../Components/Atoms";
+import { Spinner } from "../../../../Components/Bricks";
 import GraphOptions from "./GraphOptions";
 
 type mapStateProps = ReturnType<typeof mapStateToProps>;

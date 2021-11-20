@@ -4,17 +4,24 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 import logo from "../../../../utils/logo.gif";
-import { Button, Spinner } from "../../../../Components/Atoms";
+import { Button } from "../../../../Components/Bricks";
+
+interface IState {
+  name: string;
+  userName: string;
+  password: string;
+  loading: boolean;
+}
 
 interface IProps {
-  setPageToShow?: any;
+  setPageToShow: any;
 }
 
 const Register: React.FC<IProps> = ({ setPageToShow }) => {
-  const [name, setName] = React.useState("");
-  const [userName, setUserName] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [loading, setLoading] = React.useState(false);
+  const [name, setName] = React.useState<IState["name"]>("");
+  const [userName, setUserName] = React.useState<IState["userName"]>("");
+  const [password, setPassword] = React.useState<IState["password"]>("");
+  const [loading, setLoading] = React.useState<IState["loading"]>(false);
   const history = useHistory();
 
   const Submit = (e: any) => {

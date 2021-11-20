@@ -5,7 +5,8 @@ import { Redirect, NavLink } from "react-router-dom";
 import toast from "react-hot-toast";
 
 import logo from "../../../../utils/logo.gif";
-import { Button, Spinner } from "../../../../Components/Atoms";
+import { Button } from "../../../../Components/Bricks";
+
 interface IState {
   userName: string;
   password: string;

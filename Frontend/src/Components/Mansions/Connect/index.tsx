@@ -9,18 +9,19 @@ import {
   ModalHeader,
   Spinner,
   TabSwitch,
-} from "../../../../../Components/Atoms";
+} from "../../Bricks";
 import Users from "./users";
 
 interface IProps {
   userId?: string;
+  defaultTab: string;
 }
 
-const View: React.FC<IProps> = ({ userId = "" }) => {
+const Connect: React.FC<IProps> = ({ userId = "", defaultTab, children }) => {
   const [openModal, setOpenModal] = React.useState<boolean>(false);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [data, setData] = React.useState<[]>([]);
-  const [activeTab, setActiveTab] = React.useState<string>("Follow");
+  const [activeTab, setActiveTab] = React.useState<string>(defaultTab);
 
   const closeModal = () => {
     setOpenModal(false);
@@ -56,32 +57,40 @@ const View: React.FC<IProps> = ({ userId = "" }) => {
 
   return (
     <>
-      <Button
-        rounded="lg"
-        bgch="gray-800"
-        bgc="white"
-        color="gray-100"
-        colorh="white"
-        classes="w-28 h-8 bg-gray-600"
+      <div
         onClick={() => {
-          setOpenModal(true);
-          fetch();
+          if (!loading) {
+            setOpenModal(true);
+            fetch();
+          }
         }}
-        disabled={loading}
+        className="cursor-pointer"
       >
-        Connect
-      </Button>
+        {children || (
+          <Button
+            rounded="lg"
+            bgch="gray-800"
+            bgc="white"
+            color="gray-100"
+            colorh="white"
+            classes="w-28 h-8 bg-gray-600"
+            disabled={loading}
+          >
+            Connect
+          </Button>
+        )}
+      </div>
       <Modal
         className="bg-white rounded-lg w-10/12 
         xs:w-11/12 sm:w-3/4 md:w-7/12 lg:w-5/12 xl:w-4/12"
         isOpen={openModal}
         toggle={closeModal}
       >
-        <ModalHeader toggle={closeModal} hr={true}>
+        <ModalHeader toggle={closeModal} hr={true} className="pb-0">
           <TabSwitch
             active={activeTab}
             setActive={setActiveTab}
-            options={["Follow", "Requests"]}
+            options={["Follow", "Requests", "Followers"]}
           />
         </ModalHeader>
         <ModalBody className="w-full h-96 overflow-auto">
@@ -126,4 +135,4 @@ const View: React.FC<IProps> = ({ userId = "" }) => {
   );
 };
 
-export default View;
+export default Connect;

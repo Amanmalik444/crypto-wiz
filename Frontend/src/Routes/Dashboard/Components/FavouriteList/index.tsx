@@ -2,14 +2,18 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import toast from "react-hot-toast";
 
-import { Spinner, NoDataFetched } from "../../../../Components/Atoms";
-import { CoinCard } from "../../../../Components/Molecules";
+import { Spinner, NoDataFetched } from "../../../../Components/Bricks";
+import { CoinCard } from "../../../../Components/Mansions";
 
 type mapStateProps = ReturnType<typeof mapStateToProps>;
 
 type IProps = mapStateProps & { data: []; loading: boolean };
 
-const Favourites: React.FC<IProps> = ({ currency = "inr", data, loading }) => {
+const FavouriteList: React.FC<IProps> = ({
+  currency = "inr",
+  data,
+  loading,
+}) => {
   const history = useHistory();
   return (
     <div
@@ -60,4 +64,4 @@ const mapStateToProps = (state: any) => {
   return { currency: state.currency.currency };
 };
 
-export default connect(mapStateToProps)(Favourites);
+export default connect(mapStateToProps)(FavouriteList);

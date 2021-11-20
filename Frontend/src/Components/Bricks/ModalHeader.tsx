@@ -17,7 +17,7 @@ const Modal: React.FC<IProps> = ({
       <div
         className={`flex flex-row justify-between items-center
         bg-white text-2xl w-full
-        rounded-tl-lg rounded-tr-lg ${className || ""}`}
+        rounded-tl-lg rounded-tr-lg p-2 ${className || ""}`}
       >
         <p className="font-semibold text-gray-400 cursor-default">
           {children || "Header"}

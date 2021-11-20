@@ -1,14 +1,13 @@
 import { useParams } from "react-router-dom";
 
-import { Spinner } from "../../Components/Atoms";
+import { Spinner } from "../../Components/Bricks";
 import DetailCard from "./Components/DetailCard";
 import Stats from "./Components/Stats";
 import Desc from "./Components/Desc";
 import OHLCGraph from "./Components/OHLCGraph";
 import useData from "./data";
 
-const Dashboard = () => {
-  // const loggedInUser = JSON.parse(localStorage.getItem("user"));
+const CoinPage = () => {
   const { coinId } = useParams<{ coinId?: string | undefined }>();
   const { states } = useData(coinId);
   const { data, loading } = states;
@@ -73,4 +72,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default CoinPage;
