@@ -88,7 +88,7 @@ const CurrencySelector: React.FC<IProps> = ({ setCurrentCurrency }) => {
       className="text-white"
       theme={(theme) => ({
         ...theme,
-        borderRadius: 2,
+        borderRadius: 6,
         colors: {
           ...theme.colors,
           primary25: "rgba(255,255,255,0.25)",

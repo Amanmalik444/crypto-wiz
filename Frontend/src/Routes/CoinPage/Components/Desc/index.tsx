@@ -15,6 +15,10 @@ const Desc = ({ categories, description, links, platforms }: IProps) => {
       "<a ",
       '<a style=" text-decoration: underline; font-weight: 450;" '
     );
+
+  // console.log(links);
+  // console.log(platforms);
+
   return (
     <div
       className="flex flex-col flex-wrap items-center justify-center 

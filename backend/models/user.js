@@ -21,7 +21,11 @@ const userSchema = new schema(
     favouriteCoins: {
       type: [String],
       required: false,
-    }
+    },
+    followers: {
+      type: [String],
+      required: false,
+    },
   },
   { timestamps: true }
 );

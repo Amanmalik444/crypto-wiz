@@ -24,7 +24,7 @@ const OHLCGraph: React.FC<IProps> = ({
   return (
     <div
       className="flex flex-col items-center justify-center 
-    h-full w-full py-10 z-10"
+    h-full w-full py-10 mb-6"
     >
       <GraphOptions setDays={setDays} setType={setType} />
       {loading ? (

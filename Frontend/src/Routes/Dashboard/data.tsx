@@ -3,16 +3,18 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 interface IState {
-  data: [];
+  favData: [];
   loading: boolean;
+  followersNumber: number;
 }
 
 const useData = () => {
-  const [data, setData] = React.useState<IState["data"]>([]);
+  const [favData, setFavData] = React.useState<IState["favData"]>([]);
+  const [followersNumber, setFollowersNumber] =
+    React.useState<IState["followersNumber"]>(0);
   const [loading, setLoading] = React.useState<IState["loading"]>(false);
 
   let userId = JSON.parse(localStorage.getItem("user") as string)._id;
-  // let favId = String(userId) + "@SastaSalt" + String(id);
 
   React.useEffect(() => {
     setLoading(true);
@@ -27,8 +29,10 @@ const useData = () => {
         }
       )
       .then((res: any) => {
+        console.log(res.data);
         setLoading(false);
-        setData(res.data);
+        setFavData(res.data.favData);
+        setFollowersNumber(res.data.followersNumber);
       })
       .catch(() => {
         toast.error("An error occured");
@@ -36,7 +40,7 @@ const useData = () => {
       });
   }, []);
 
-  const states = { data, loading };
+  const states = { favData, loading, followersNumber };
 
   return { states };
 };

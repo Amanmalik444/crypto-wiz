@@ -30,7 +30,7 @@ const GraphOptions: React.FC<IProps> = ({ setDays, setType }) => {
   return (
     <div
       className="flex flex-row items-center 
-    justify-center gap-12 z-40"
+    justify-center gap-12"
     >
       <div
         className="flex flex-row items-center 

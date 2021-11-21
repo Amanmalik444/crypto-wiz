@@ -4,8 +4,9 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useHistory, useLocation, NavLink } from "react-router-dom";
 
 import logo from "../../../utils/logo.gif";
-import user from "../../../utils/user.png";
 import CurrencySelector from "./Components/CurrencySelector";
+import { Connect } from "../index";
+import { Dropdown } from "../../Bricks";
 import useData from "./data";
 
 function classNames(...classes: any) {
@@ -100,81 +101,38 @@ const Navbar: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  {/* Profile dropdown */}
-                  <Menu as="div" className="ml-3 relative">
-                    {({ open }: { open: boolean }) => (
-                      <>
-                        <div>
-                          <Menu.Button
-                            className="bg-gray-800 flex text-sm rounded-full 
-                          outline-none ring-2 ring-gray-500"
-                          >
-                            <span className="sr-only">Open user menu</span>
-                            <img
-                              className="h-8 w-8 rounded-full"
-                              src={user}
-                              alt=""
-                            />
-                          </Menu.Button>
-                        </div>
-                        <Transition
-                          show={open}
-                          as={React.Fragment}
-                          enter="transition ease-out duration-100"
-                          enterFrom="transform opacity-0 scale-95"
-                          enterTo="transform opacity-100 scale-100"
-                          leave="transition ease-in duration-75"
-                          leaveFrom="transform opacity-100 scale-100"
-                          leaveTo="transform opacity-0 scale-95"
+                <div
+                  className="absolute inset-y-0 right-0 flex items-center pr-2 
+                sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+                >
+                  <Dropdown>
+                    <div>
+                      <p
+                        className="block px-4 rounded-t-lg bg-white py-2 pt-3 
+                      hover:text-gray-900 hover:bg-gray-100 cursor-pointer"
+                      >
+                        <i className="bx bxs-cog mr-2" />
+                        Settings
+                      </p>
+                      <Connect defaultTab="Requests">
+                        <p
+                          className="block px-4 py-2 hover:text-gray-900 
+                      hover:bg-gray-100 cursor-pointer"
                         >
-                          <Menu.Items
-                            static
-                            className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-                          >
-                            <Menu.Item>
-                              {({ active }: any) => (
-                                <a
-                                  href="#"
-                                  className={classNames(
-                                    active ? "bg-gray-100" : "",
-                                    "block px-4 py-2 text-sm text-gray-700"
-                                  )}
-                                >
-                                  Your Profile
-                                </a>
-                              )}
-                            </Menu.Item>
-                            <Menu.Item>
-                              {({ active }: any) => (
-                                <a
-                                  href="#"
-                                  className={classNames(
-                                    active ? "bg-gray-100" : "",
-                                    "block px-4 py-2 text-sm text-gray-700"
-                                  )}
-                                >
-                                  Settings
-                                </a>
-                              )}
-                            </Menu.Item>
-                            <Menu.Item onClick={Logout}>
-                              {({ active }: any) => (
-                                <a
-                                  className={classNames(
-                                    active ? "bg-gray-100" : "",
-                                    "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
-                                  )}
-                                >
-                                  {logStatus}
-                                </a>
-                              )}
-                            </Menu.Item>
-                          </Menu.Items>
-                        </Transition>
-                      </>
-                    )}
-                  </Menu>
+                          <i className="bx bx-notification mr-2" />
+                          Notifications
+                        </p>
+                      </Connect>
+                    </div>
+                    <p
+                      className="block rounded-b-lg hover:text-gray-900 
+                      hover:bg-gray-100 cursor-pointer px-4 py-2 pb-3"
+                      onClick={Logout}
+                    >
+                      <i className="bx bx-log-out mr-2" />
+                      Log out
+                    </p>
+                  </Dropdown>
                 </div>
               </div>
             </div>
@@ -196,7 +154,10 @@ const Navbar: React.FC = () => {
                     {item.name}
                   </a>
                 ))}
-                <div className="text-gray-300 hover:bg-gray-950 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                <div
+                  className="text-gray-300 hover:bg-gray-950 hover:text-white 
+                px-3 py-2 rounded-md text-sm font-medium"
+                >
                   <span>Status : {status}</span>
                 </div>
                 <div className="px-3 py-2">

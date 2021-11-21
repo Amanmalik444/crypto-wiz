@@ -37,9 +37,9 @@ const CoinPage = () => {
   return (
     <div className="flex items-start justify-center w-full pt-24">
       {loading ? (
-        <Spinner height="4xl" className="mt-60 mb-44" />
+        <Spinner height="4xl" className="my-80" />
       ) : (
-        <div className="flex flex-col flex-wrap items-center justify-center">
+        <div className="w-full flex flex-col flex-wrap items-center justify-center">
           <DetailCard
             image={image}
             name={name}

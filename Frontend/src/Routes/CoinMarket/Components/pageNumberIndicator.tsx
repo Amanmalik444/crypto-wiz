@@ -15,8 +15,8 @@ const Filters: React.FC<IProps> = ({ page = 1, numberToShow = 1, setPage }) => {
       }}
       className={`relative inline-flex items-center px-4 py-2 ${
         page === numberToShow
-          ? "border-t border-b px-5 border-indigo-500 bg-indigo-200 bg-opacity-70 hover:bg-opacity-100 text-indigo-800"
-          : "border border-gray-300 hover:bg-gray-200"
+          ? "border-t border-b px-5 border-indigo-500 bg-indigo-200 bg-opacity-60 hover:bg-opacity-90 text-indigo-800"
+          : "border border-gray-300 hover:bg-gray-100"
       }`}
     >
       {numberToShow}

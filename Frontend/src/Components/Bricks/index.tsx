@@ -10,6 +10,7 @@ import Toast from "./Toast";
 import TabSwitch from "./TabSwitch";
 import ScrollButton from "./scrollButton";
 import NoDataFetched from "./NoDataFetched";
+import Dropdown from "./Dropdown";
 
 export {
   Button,
@@ -24,4 +25,5 @@ export {
   ScrollButton,
   NoDataFetched,
   TabSwitch,
+  Dropdown,
 };

@@ -12,6 +12,7 @@ interface IProps {
   currency?: string | undefined;
   current_price?: string | undefined;
   createdAt?: string | undefined;
+  favByDefault?: boolean;
 }
 
 const CoinCard = ({
@@ -22,6 +23,7 @@ const CoinCard = ({
   symbol,
   id,
   createdAt = "",
+  favByDefault = false,
 }: IProps) => {
   return (
     <div
@@ -38,7 +40,13 @@ const CoinCard = ({
       w-60 text-2xl p-2"
       >
         {localStorage.getItem("jwt") ? (
-          <FavouriteIcon id={id} name={name} image={image} symbol={symbol} />
+          <FavouriteIcon
+            id={id}
+            name={name}
+            image={image}
+            symbol={symbol}
+            favByDefault={favByDefault}
+          />
         ) : (
           <i
             className="bx bx-question-mark cursor-pointer text-gray-800"

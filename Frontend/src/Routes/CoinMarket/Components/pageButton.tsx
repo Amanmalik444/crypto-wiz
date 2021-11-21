@@ -50,7 +50,7 @@ const Filters: React.FC<IProps> = ({ setPage, page = 1, className = "" }) => {
         </p>
         <nav
           className="cursor-pointer bg-white relative flex flex-row
-          rounded-lg shadow-sm -space-x-px text-gray-500 text-sm font-medium m-4"
+          rounded-md shadow-sm -space-x-px text-gray-500 text-sm font-medium m-4"
           aria-label="Pagination"
         >
           <i
@@ -59,13 +59,13 @@ const Filters: React.FC<IProps> = ({ setPage, page = 1, className = "" }) => {
                 ? setPage(page - 10)
                 : toast.error("Choose a valid page");
             }}
-            className="bx bx-chevrons-left text-2xl p-2 rounded-l-lg border 
-            border-gray-300 bg-white hover:bg-gray-100"
+            className="bx bx-chevrons-left text-2xl p-2 rounded-l-md border 
+            border-gray-300 hover:bg-gray-100"
           />
           <i
             onClick={previous}
             className="bx bx-chevron-left text-2xl p-2 border 
-            border-gray-300 bg-white hover:bg-gray-100"
+            border-gray-300 hover:bg-gray-100"
           />
           <PageNumberIndicator
             page={page}
@@ -120,14 +120,14 @@ const Filters: React.FC<IProps> = ({ setPage, page = 1, className = "" }) => {
           <i
             onClick={next}
             className="bx bx-chevron-right text-2xl p-2
-            border border-gray-300 bg-white hover:bg-gray-100"
+            border border-gray-300 hover:bg-gray-100"
           />
           <i
             onClick={() => {
               setPage(page + 10);
             }}
-            className="bx bx-chevrons-right text-2xl p-2 rounded-r-lg 
-            border border-gray-300 bg-white hover:bg-gray-100"
+            className="bx bx-chevrons-right text-2xl p-2 rounded-r-md 
+            border border-gray-300 hover:bg-gray-100"
           />
         </nav>
       </div>

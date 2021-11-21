@@ -30,7 +30,6 @@ const FavouriteList: React.FC<IProps> = ({
               image: string | undefined;
               symbol: string | undefined;
               id: string | undefined;
-              current_price: string | undefined;
             };
             createdAt: string | undefined;
           }) => (
@@ -41,8 +40,8 @@ const FavouriteList: React.FC<IProps> = ({
                 name={fav.cardData.name}
                 image={fav.cardData.image}
                 symbol={fav.cardData.symbol}
-                current_price={fav.cardData.current_price}
                 createdAt={fav.createdAt}
+                favByDefault={true}
               />
             </>
           )

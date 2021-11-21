@@ -19,7 +19,7 @@ const Modal: React.FC<IProps> = ({
         bg-white text-2xl w-full
         rounded-tl-lg rounded-tr-lg p-2 ${className || ""}`}
       >
-        <p className="font-semibold text-gray-400 cursor-default">
+        <p className="font-semibold w-full text-gray-400 cursor-default">
           {children || "Header"}
         </p>
         <i

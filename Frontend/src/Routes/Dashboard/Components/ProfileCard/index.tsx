@@ -1,11 +1,17 @@
 import moment from "moment";
 import { Connect } from "../../../../Components/Mansions";
 
+import userImg from "../../../../utils/user.png";
+
 interface IProps {
   coinsSaved?: number;
+  followersNumber?: number;
 }
 
-const ProfileCard: React.FC<IProps> = ({ coinsSaved = 0 }) => {
+const ProfileCard: React.FC<IProps> = ({
+  coinsSaved = 0,
+  followersNumber = 0,
+}) => {
   let element = document.getElementById("favouriteList");
   const user = JSON.parse(localStorage.getItem("user") as string);
 
@@ -25,14 +31,14 @@ const ProfileCard: React.FC<IProps> = ({ coinsSaved = 0 }) => {
       <div className="flex-none sm:flex">
         <div className="relative h-32 w-32 sm:mb-0 mb-3">
           <img
-            src="https://tailwindcomponents.com/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg"
+            src={userImg}
             alt="aji"
             className="w-32 h-32 object-cover rounded-2xl border-2 border-gray-300"
           />
           <i
             className="bx bxs-edit-alt absolute -right-2 bottom-2 cursor-pointer
-          text-lg text-gray-100 rounded-full bg-gray-600 px-1 border-r-2 border-gray-300
-          transition ease-in duration-300 hover:text-white hover:bg-gray-800"
+          text-lg text-gray-100 rounded-full bg-gray-600 px-1
+          transition ease-in duration-200 hover:text-white hover:bg-gray-800"
           />
         </div>
         <div className="flex-auto sm:ml-5 justify-evenly">
@@ -57,24 +63,34 @@ const ProfileCard: React.FC<IProps> = ({ coinsSaved = 0 }) => {
               </p>
             </div>
           </div>
-          <div className="flex w-full justify-between items-center flex-wrap pt-4 text-sm text-gray-600">
-            <div className="flex w-full md:w-3/4 justify-between items-center">
+          <div
+            className="flex w-full justify-between items-center flex-wrap 
+          pt-4 text-sm text-gray-600"
+          >
+            <div className="flex w-full md:w-2/3 justify-between items-center">
               <div className="flex-1 inline-flex items-center">
                 <i
                   className="bx bxs-star mr-2 text-lg cursor-pointer"
                   onClick={scrollToFavourite}
                 />
                 <p className="cursor-pointer" onClick={scrollToFavourite}>
-                  {coinsSaved} Favourites
+                  {coinsSaved} {coinsSaved > 1 ? "Favourites" : "Favourite"}
                 </p>
               </div>
               <div className="flex-1 inline-flex items-center">
-                <i className="bx bxs-user-plus mr-2 text-xl cursor-pointer" />
-                <p className="cursor-pointer">2 Followers</p>
+                <Connect defaultTab="Followers">
+                  <i className="bx bxs-user-plus mr-2 text-xl cursor-pointer" />
+                </Connect>
+                <Connect defaultTab="Followers">
+                  <p className="cursor-pointer">
+                    {followersNumber}{" "}
+                    {followersNumber > 1 ? "Followers" : "Follower"}
+                  </p>
+                </Connect>
               </div>
             </div>
-            <div>
-              <Connect userId={user._id} defaultTab="Follow" />
+            <div className="mr-2">
+              <Connect defaultTab="Follow" />
             </div>
           </div>
         </div>

@@ -20,7 +20,7 @@ const CoinMarket: React.FC<IProps> = ({ currency = "inr" }) => {
     <div className="pt-20 bg-gray-200 flex flex-col flex-wrap items-center justify-center">
       <Filters setOrder={setOrder} setCategory={setCategory} />
       {loading ? (
-        <Spinner height="4xl" className="my-64" />
+        <Spinner height="4xl" className="my-60" />
       ) : data && data!.length > 0 ? (
         <div className="flex flex flex-wrap items-center justify-center">
           {data?.map(
@@ -45,7 +45,7 @@ const CoinMarket: React.FC<IProps> = ({ currency = "inr" }) => {
       ) : (
         <NoDataFetched
           errorMessage="No data fetched"
-          className="py-52"
+          className="py-48"
           onClickNoData={() => {
             window.location.reload();
             toast.success("Refreshing Page");

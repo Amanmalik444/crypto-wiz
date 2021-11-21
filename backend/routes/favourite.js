@@ -62,11 +62,15 @@ router.post("/fetchByFavId", (req, res) => {
 });
 
 router.post("/fetchByUserId", (req, res) => {
+  const { userId } = req.body;
   favourite
-    .find({ userId: req.body.userId })
+    .find({ userId })
     .sort({ createdAt: -1 })
-    .then((f) => {
-      res.json(f);
+    .then((favData) => {
+      user.findById(userId).then((user) => {
+        const body = { followersNumber: user.followers.length, favData };
+        res.json(body);
+      });
     })
     .catch((err) => {
       console.log(err);

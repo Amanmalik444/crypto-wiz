@@ -7,35 +7,44 @@ interface IProps {
   name: string | undefined;
   image: string | undefined;
   symbol: string | undefined;
+  favByDefault: boolean;
 }
 
-const FavouriteIcon = ({ id, name, image, symbol }: IProps) => {
+const FavouriteIcon = ({
+  id,
+  name,
+  image,
+  symbol,
+  favByDefault = false,
+}: IProps) => {
   const [loading, setLoading] = React.useState<boolean>(false);
-  const [favourite, setFavourite] = React.useState<boolean>(false);
+  const [favourite, setFavourite] = React.useState<boolean>(favByDefault);
 
   let userId = JSON.parse(localStorage.getItem("user") as string)._id;
   let favId = String(userId) + "@SastaSalt" + String(id);
 
   React.useEffect(() => {
-    setLoading(true);
-    axios
-      .post(
-        `${process.env.REACT_APP_SERVER_LINK}/favourite/fetchByFavId`,
-        { favId },
-        {
-          headers: {
-            Authorization: JSON.parse(localStorage.getItem("jwt") as string),
-          },
-        }
-      )
-      .then((res: any) => {
-        setLoading(false);
-        setFavourite(res.data);
-      })
-      .catch((err) => {
-        toast.error("An error occured");
-        setLoading(false);
-      });
+    if (!favByDefault) {
+      setLoading(true);
+      axios
+        .post(
+          `${process.env.REACT_APP_SERVER_LINK}/favourite/fetchByFavId`,
+          { favId },
+          {
+            headers: {
+              Authorization: JSON.parse(localStorage.getItem("jwt") as string),
+            },
+          }
+        )
+        .then((res: any) => {
+          setLoading(false);
+          setFavourite(res.data);
+        })
+        .catch((err) => {
+          toast.error("An error occured");
+          setLoading(false);
+        });
+    }
   }, []);
 
   const setAsFavourite = () => {

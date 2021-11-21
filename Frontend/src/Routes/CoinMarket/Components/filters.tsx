@@ -595,7 +595,7 @@ const Filters: React.FC<IProps> = ({ setOrder, setCategory }) => {
           }}
           theme={(theme) => ({
             ...theme,
-            borderRadius: 8,
+            borderRadius: 6,
           })}
           className="mx-3 my-2"
         />
@@ -610,7 +610,7 @@ const Filters: React.FC<IProps> = ({ setOrder, setCategory }) => {
           }}
           theme={(theme) => ({
             ...theme,
-            borderRadius: 8,
+            borderRadius: 6,
           })}
           className="mx-3 my-2"
         />

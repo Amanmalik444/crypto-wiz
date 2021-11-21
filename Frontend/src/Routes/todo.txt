@@ -14,3 +14,5 @@ improve clicking on card to open details
 liv icons
 jwt and user to cryptoWizJWT and cryptoWizUSER
 create a data file in util for react select datas
+new navbar
+unfollow in connect

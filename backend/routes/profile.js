@@ -17,7 +17,19 @@ router.post("/FollowTabList", (req, res) => {
 
 router.post("/RequestsTabList", (req, res) => {
   connection
-    .find({ userId: req.body.userId })
+    .find({ userId: req.body.userId, status: { $ne: "Accepted" } })
+    .populate("requestorId")
+    .then((conn) => {
+      res.json(conn);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.post("/FollowersTabList", (req, res) => {
+  connection
+    .find({ userId: req.body.userId, status: "Accepted" })
     .populate("requestorId")
     .then((conn) => {
       res.json(conn);
@@ -54,7 +66,34 @@ router.post("/Accept", (req, res) => {
       { status: "Accepted" }
     )
     .then(() => {
-      res.json("Accepted");
+      user
+        .updateOne({ _id: userId }, { $push: { followers: toConnectId } })
+        .then(() => {
+          res.json("Accepted");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json("An error occured");
+    });
+});
+
+router.post("/Remove", (req, res) => {
+  const { userId, toConnectId } = req.body;
+  connection
+    .findOneAndRemove({ userId, requestorId: toConnectId })
+    .then(() => {
+      user
+        .updateOne({ _id: userId }, { $pull: { followers: toConnectId } })
+        .then(() => {
+          res.json("Removed");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     })
     .catch((err) => {
       console.log(err);
@@ -64,6 +103,7 @@ router.post("/Accept", (req, res) => {
 
 router.post("/fetchFollowTabStatus", (req, res) => {
   const { userId, toConnectId } = req.body;
+  //inverted
   connection
     .findOne({ userId: toConnectId, requestorId: userId })
     .then((conn) => {
@@ -88,22 +128,16 @@ router.post("/fetchAcceptTabStatus", (req, res) => {
     });
 });
 
-router.post("/acceptRejectRequest", (req, res) => {
-  const { userId, toFollowId } = req.body;
-  //switching Ids
-  const newConnect = new connection({
-    userId: toFollowId,
-    requestorId: userId,
-    status: "Pending",
-  });
-  newConnect
-    .save()
-    .then(() => {
-      res.json("Pending");
+router.post("/fetchRemoveTabStatus", (req, res) => {
+  const { userId, toConnectId } = req.body;
+  connection
+    .findOne({ userId, requestorId: toConnectId })
+    .then((conn) => {
+      console.log(conn);
+      res.json(conn?.status === "Accepted" ? "Remove" : conn?.status);
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json("An error occured");
     });
 });
 
