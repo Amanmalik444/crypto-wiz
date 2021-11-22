@@ -13,6 +13,8 @@ interface IProps {
   current_price?: string | undefined;
   createdAt?: string | undefined;
   favByDefault?: boolean;
+  favData?: string[];
+  toggleRefetch?: () => void;
 }
 
 const CoinCard = ({
@@ -24,6 +26,8 @@ const CoinCard = ({
   id,
   createdAt = "",
   favByDefault = false,
+  favData,
+  toggleRefetch = () => {},
 }: IProps) => {
   return (
     <div
@@ -46,6 +50,8 @@ const CoinCard = ({
             image={image}
             symbol={symbol}
             favByDefault={favByDefault}
+            favData={favData}
+            toggleRefetch={toggleRefetch}
           />
         ) : (
           <i

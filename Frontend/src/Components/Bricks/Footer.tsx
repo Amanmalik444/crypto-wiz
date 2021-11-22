@@ -3,18 +3,22 @@ import * as React from "react";
 const Footer: React.FC = () => {
   return (
     <footer className="w-full flex flex-col items-center bg-black">
-      <div className="w-full md:w-2/3 px-4 md:px-0 py-4
-      flex flex-col items-center">
+      <div
+        className="w-full md:w-2/3 px-4 md:px-0 py-4
+      flex flex-col items-center"
+      >
         <h1 className="text-white text-7xl font-bold">
-          Goals are dreams with deadlines
+          Managing Cryptos made easy
         </h1>
         <p className="my-4 text-gray-400">
           Feel free to give feedback on Crypto-Wiz, I've listed all my socials
           below.
         </p>
         <div className="flex flex-col justify-center text-white">
-          <div className="flex flex-row flex-wrap items-center justify-around
-           my-8 px-4">
+          <div
+            className="flex flex-row flex-wrap items-center justify-around
+           my-8 px-4"
+          >
             <a href="https://github.com/Amanmalik444" target="_blank">
               <i className="bx bxl-github text-5xl cursor-pointer mr-4 md:mr-12" />
             </a>

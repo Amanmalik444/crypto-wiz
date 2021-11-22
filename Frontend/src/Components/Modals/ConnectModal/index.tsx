@@ -8,31 +8,32 @@ import {
   ModalHeader,
   Spinner,
   TabSwitch,
-} from "../../../../Bricks";
-import Users from "../Users";
+} from "../../Bricks";
+import Users from "./Components/users";
 
 interface IProps {
   openModal: any;
+  defaultTab?: string;
   closeModal: () => void;
-  activeTab: string | undefined;
-  setActiveTab: any;
 }
 
-const Connect: React.FC<IProps> = ({
+const ConnectModal: React.FC<IProps> = ({
+  defaultTab,
   openModal,
   closeModal,
-  activeTab,
-  setActiveTab,
 }) => {
   const [data, setData] = React.useState<[]>([]);
   const [loading, setLoading] = React.useState<boolean>(false);
+  const [activeTab, setActiveTab] = React.useState<string | undefined>(
+    defaultTab
+  );
 
   const userId = JSON.parse(localStorage.getItem("user") as string)?._id || "";
 
   const fetch = () => {
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/profile/${activeTab}TabList`,
+        `${process.env.REACT_APP_SERVER_LINK}/connect/${activeTab}TabList`,
         { userId },
         {
           headers: {
@@ -125,4 +126,4 @@ const Connect: React.FC<IProps> = ({
   );
 };
 
-export default Connect;
+export default ConnectModal;

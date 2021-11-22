@@ -8,6 +8,11 @@ interface IParams {
 
 const useData = (history: IParams["history"]) => {
   const [status, setStatus] = React.useState<string>("Offline");
+  const [connectModalVisibile, setConnectModalVisibility] =
+    React.useState<boolean>(false);
+  const [settingsModalVisibile, setSettingsModalVisibility] =
+    React.useState<boolean>(false);
+
   React.useEffect(() => {
     toast.loading(`Connecting`, { id: "status" });
     setStatus("Connecting!");
@@ -24,7 +29,7 @@ const useData = (history: IParams["history"]) => {
           toast.dismiss("status");
         }
       })
-      .catch((err) => {
+      .catch(() => {
         setStatus("Offline");
         toast.error(`Servers Offline`);
         toast.dismiss("status");
@@ -43,9 +48,14 @@ const useData = (history: IParams["history"]) => {
     localStorage.setItem("user", "");
   };
 
-  const states = { status };
+  const states = { status, connectModalVisibile, settingsModalVisibile };
 
-  return { Logout, states };
+  return {
+    Logout,
+    states,
+    setConnectModalVisibility,
+    setSettingsModalVisibility,
+  };
 };
 
 export default useData;

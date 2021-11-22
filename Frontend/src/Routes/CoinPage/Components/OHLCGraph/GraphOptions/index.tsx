@@ -3,6 +3,8 @@ import Select from "react-select";
 import { Toggle } from "tailwind-mobile/react";
 import toast from "react-hot-toast";
 
+import { dayOptionsCoinPage } from "../../../../../utils/optionsForSelectors";
+
 interface IProps {
   setDays: any;
   setType: any;
@@ -10,16 +12,6 @@ interface IProps {
 
 const GraphOptions: React.FC<IProps> = ({ setDays, setType }) => {
   const [checked, setChecked] = React.useState(true);
-
-  const dayOptions = [
-    { label: "1 day", value: 1 },
-    { label: "7 days", value: 7 },
-    { label: "14 days", value: 14 },
-    { label: "30 days", value: 30 },
-    { label: "90 days", value: 90 },
-    { label: "180 days", value: 180 },
-    { label: "365 days", value: 365 },
-  ];
 
   if (checked) {
     setType("candlestick");
@@ -68,7 +60,7 @@ const GraphOptions: React.FC<IProps> = ({ setDays, setType }) => {
           setDays(e?.value);
           toast.success(`Showing graph for ${e?.label}`);
         }}
-        options={dayOptions}
+        options={dayOptionsCoinPage}
         defaultValue={{ label: "7 days", value: 7 }}
         theme={(theme) => ({
           ...theme,

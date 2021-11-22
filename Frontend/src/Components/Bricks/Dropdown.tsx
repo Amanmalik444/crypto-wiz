@@ -27,12 +27,12 @@ const Dropdown: React.FC<IProps> = ({ children, className }) => {
         />
         <div
           className={`${
-            openDrop ? "block" : "invisible"
-          } z-30 origin-top-right absolute right-0 w-36 mt-2 text-gray-700 text-sm
+            openDrop ? "block translate-y-2" : "invisible translate-y-12"
+          } z-30 origin-top-right absolute right-0 w-36 text-gray-700 text-sm
           rounded-md shadow-lg bg-white divide-y divide-gray-200
-          transition-all duration-100 ease-in`}
-          // transform translate-y-2 translate-y-6
+          transition-all duration-100 ease-in transform`}
           onClick={(e) => {
+            setOpenDrop(false);
             e.stopPropagation();
           }}
         >

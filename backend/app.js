@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 8000;
 const registerRoute = require("./routes/register");
 const favouriteRoute = require("./routes/favourite");
 const profileRoute = require("./routes/profile");
+const connectRoute = require("./routes/connect");
 const loginRoute = require("./routes/login");
 
 app.use(passport.initialize());
@@ -35,6 +36,13 @@ app.use(
   "/profile",
   passport.authenticate("jwt", { session: false }),
   profileRoute
+);
+
+// connect route
+app.use(
+  "/connect",
+  passport.authenticate("jwt", { session: false }),
+  connectRoute
 );
 
 mongoose.connect(

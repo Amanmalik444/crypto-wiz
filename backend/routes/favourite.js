@@ -61,14 +61,27 @@ router.post("/fetchByFavId", (req, res) => {
     });
 });
 
+router.post("/fetchFavListUser", (req, res) => {
+  const { userId } = req.body;
+  user
+    .findById(userId)
+    .then((u) => {
+      res.json(u?.favouriteCoins);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json("An error occured");
+    });
+});
+
 router.post("/fetchByUserId", (req, res) => {
   const { userId } = req.body;
   favourite
     .find({ userId })
     .sort({ createdAt: -1 })
     .then((favData) => {
-      user.findById(userId).then((user) => {
-        const body = { followersNumber: user.followers.length, favData };
+      user.findById(userId).then((u) => {
+        const body = { followersNumber: u.followers.length, favData };
         res.json(body);
       });
     })

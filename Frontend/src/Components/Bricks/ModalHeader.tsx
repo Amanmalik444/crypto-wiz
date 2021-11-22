@@ -13,7 +13,7 @@ const Modal: React.FC<IProps> = ({
   hr = true,
 }) => {
   return (
-    <div className="flex flex-col items-center ml-2 p-3">
+    <div className="flex flex-col items-center p-3">
       <div
         className={`flex flex-row justify-between items-center
         bg-white text-2xl w-full
@@ -27,7 +27,7 @@ const Modal: React.FC<IProps> = ({
           onClick={toggle}
         />
       </div>
-      {hr && <hr className="w-11/12" />}
+      {hr && <hr className="w-full" />}
     </div>
   );
 };

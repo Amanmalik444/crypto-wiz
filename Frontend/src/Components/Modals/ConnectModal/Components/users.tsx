@@ -3,8 +3,7 @@ import moment from "moment";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-import { Button } from "../../../../Bricks";
-import { types } from "util";
+import { Button } from "../../../Bricks";
 
 interface IProps {
   name: string;
@@ -32,7 +31,7 @@ const Users: React.FC<IProps> = ({
     setLoading(true);
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/profile/fetch${useCase}TabStatus`,
+        `${process.env.REACT_APP_SERVER_LINK}/connect/fetch${useCase}TabStatus`,
         { userId, toConnectId },
         {
           headers: {
@@ -54,7 +53,7 @@ const Users: React.FC<IProps> = ({
     setLoading(true);
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/profile/${type}`,
+        `${process.env.REACT_APP_SERVER_LINK}/connect/${type}`,
         { userId, toConnectId },
         {
           headers: {

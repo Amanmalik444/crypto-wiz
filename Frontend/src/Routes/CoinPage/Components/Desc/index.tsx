@@ -1,4 +1,7 @@
+import * as React from "react";
 import ReactHtmlParser from "react-html-parser";
+
+import { Button } from "../../../../Components/Bricks";
 
 interface IProps {
   categories: any;
@@ -8,6 +11,7 @@ interface IProps {
 }
 
 const Desc = ({ categories, description, links, platforms }: IProps) => {
+  const [readMoreClicked, setReadMore] = React.useState<boolean>(false);
   let des =
     description &&
     description.en &&
@@ -22,19 +26,39 @@ const Desc = ({ categories, description, links, platforms }: IProps) => {
   return (
     <div
       className="flex flex-col flex-wrap items-center justify-center 
-      w-full py-5 px-4 border-b border-opacity-80"
+      w-full py-5"
     >
       <hr className="w-4/5 pb-2" />
-      <div className="flex flex-row items-center justify-center ml-3 mr-3">
-        <p className="text-sm font-medium">Categories </p>
+      <div className="flex flex-row flex-wrap items-center justify-center ml-3 mr-3">
+        <p className="text-sm font-medium w-32 text-center">Categories </p>
         {categories &&
           categories.map((cat: string) => {
             return <p className="text-sm font-small border m-2 p-1">{cat} </p>;
           })}
       </div>
-      <div className="px-5 pt-1">
-        <p className="text-sm font-small">{ReactHtmlParser(des)}</p>
-      </div>
+      <p
+        className={`my-1 text-sm font-small text-start max-w-11/12
+      ${readMoreClicked ? "" : "truncate"}`}
+      >
+        {ReactHtmlParser(des)}
+      </p>
+      {!readMoreClicked && (
+        <Button
+          rounded="md"
+          bgch="gray-700"
+          bgc="gray-500"
+          color="white"
+          colorh="white"
+          classes="w-24 h-7 my-2 text-sm"
+          outline={false}
+          onClick={() => {
+            setReadMore(true);
+          }}
+        >
+          Read more
+        </Button>
+      )}
+
       {/* {links}, */}
       {/* {platforms}, */}
     </div>

@@ -19,6 +19,9 @@ const Toast: React.FC = () => {
         success: {
           duration: 4000,
         },
+        loading: {
+          duration: 90000000,
+        },
       }}
     >
       {(t) => (

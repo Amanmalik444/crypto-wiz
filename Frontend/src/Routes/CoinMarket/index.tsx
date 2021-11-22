@@ -12,9 +12,10 @@ type mapStateProps = ReturnType<typeof mapStateToProps>;
 type IProps = mapStateProps;
 
 const CoinMarket: React.FC<IProps> = ({ currency = "inr" }) => {
-  const { states, setOrder, setPage, setCategory } = useData(currency);
+  const { states, setOrder, setPage, setCategory, increaseFavFlagNumber } =
+    useData(currency);
 
-  const { data, loading, page } = states;
+  const { data, loading, page, favData } = states;
 
   return (
     <div className="pt-20 bg-gray-200 flex flex-col flex-wrap items-center justify-center">
@@ -38,6 +39,8 @@ const CoinMarket: React.FC<IProps> = ({ currency = "inr" }) => {
                 image={cardData.image}
                 symbol={cardData.symbol}
                 current_price={cardData.current_price}
+                favData={favData}
+                toggleRefetch={increaseFavFlagNumber}
               />
             )
           )}

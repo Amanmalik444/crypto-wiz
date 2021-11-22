@@ -1,13 +1,14 @@
 import * as React from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useHistory, useLocation, NavLink } from "react-router-dom";
 
 import logo from "../../../utils/logo.gif";
 import CurrencySelector from "./Components/CurrencySelector";
-import { Connect } from "../index";
 import { Dropdown } from "../../Bricks";
 import useData from "./data";
+import ConnectModal from "../../Modals/ConnectModal";
+import SettingsModal from "../../Modals/SettingsModal";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
@@ -35,10 +36,15 @@ const Navbar: React.FC = () => {
     },
   ];
 
-  const { Logout, states } = useData(history);
-  const { status } = states;
+  const {
+    Logout,
+    states,
+    setConnectModalVisibility,
+    setSettingsModalVisibility,
+  } = useData(history);
+  const { status, connectModalVisibile, settingsModalVisibile } = states;
 
-  const logStatus = localStorage.getItem("jwt") ? "Log Out" : "Log In";
+  const logStatus = localStorage.getItem("jwt") ? "Log out" : "Log in";
 
   return (
     <div className="fixed w-screen z-20">
@@ -110,19 +116,23 @@ const Navbar: React.FC = () => {
                       <p
                         className="block px-4 rounded-t-lg bg-white py-2 pt-3 
                       hover:text-gray-900 hover:bg-gray-100 cursor-pointer"
+                        onClick={() => {
+                          setSettingsModalVisibility(true);
+                        }}
                       >
                         <i className="bx bxs-cog mr-2" />
                         Settings
                       </p>
-                      <Connect defaultTab="Requests">
-                        <p
-                          className="block px-4 py-2 hover:text-gray-900 
+                      <p
+                        className="block px-4 py-2 hover:text-gray-900 
                       hover:bg-gray-100 cursor-pointer"
-                        >
-                          <i className="bx bx-notification mr-2" />
-                          Notifications
-                        </p>
-                      </Connect>
+                        onClick={() => {
+                          setConnectModalVisibility(true);
+                        }}
+                      >
+                        <i className="bx bx-notification mr-2" />
+                        Notifications
+                      </p>
                     </div>
                     <p
                       className="block rounded-b-lg hover:text-gray-900 
@@ -130,7 +140,7 @@ const Navbar: React.FC = () => {
                       onClick={Logout}
                     >
                       <i className="bx bx-log-out mr-2" />
-                      Log out
+                      {logStatus}
                     </p>
                   </Dropdown>
                 </div>
@@ -168,6 +178,23 @@ const Navbar: React.FC = () => {
           </>
         )}
       </Disclosure>
+      {connectModalVisibile && (
+        <ConnectModal
+          openModal={connectModalVisibile}
+          closeModal={() => {
+            setConnectModalVisibility(false);
+          }}
+          defaultTab={"Requests"}
+        />
+      )}
+      {settingsModalVisibile && (
+        <SettingsModal
+          openModal={settingsModalVisibile}
+          closeModal={() => {
+            setSettingsModalVisibility(false);
+          }}
+        />
+      )}
     </div>
   );
 };

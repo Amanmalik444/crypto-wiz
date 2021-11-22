@@ -8,6 +8,8 @@ interface IProps {
   image: string | undefined;
   symbol: string | undefined;
   favByDefault: boolean;
+  favData?: string[];
+  toggleRefetch?: () => void;
 }
 
 const FavouriteIcon = ({
@@ -16,6 +18,8 @@ const FavouriteIcon = ({
   image,
   symbol,
   favByDefault = false,
+  favData,
+  toggleRefetch = () => {},
 }: IProps) => {
   const [loading, setLoading] = React.useState<boolean>(false);
   const [favourite, setFavourite] = React.useState<boolean>(favByDefault);
@@ -24,31 +28,14 @@ const FavouriteIcon = ({
   let favId = String(userId) + "@SastaSalt" + String(id);
 
   React.useEffect(() => {
-    if (!favByDefault) {
-      setLoading(true);
-      axios
-        .post(
-          `${process.env.REACT_APP_SERVER_LINK}/favourite/fetchByFavId`,
-          { favId },
-          {
-            headers: {
-              Authorization: JSON.parse(localStorage.getItem("jwt") as string),
-            },
-          }
-        )
-        .then((res: any) => {
-          setLoading(false);
-          setFavourite(res.data);
-        })
-        .catch((err) => {
-          toast.error("An error occured");
-          setLoading(false);
-        });
+    if (!favByDefault && favData && favData?.includes(favId)) {
+      setFavourite(true);
     }
-  }, []);
+  }, [favData]);
 
   const setAsFavourite = () => {
     setLoading(true);
+    toggleRefetch();
     toast.loading(`Adding ${name || ""} to favourite list`, {
       id: "setFavourite",
     });
@@ -109,9 +96,10 @@ const FavouriteIcon = ({
         onClick={() => {
           !loading && favourite ? removeFromFavourite() : setAsFavourite();
         }}
-        className={`transition duration-300
+        className={`transition duration-200
           bx bxs-heart cursor-pointer transform
-         ${favourite ? "text-red-500 scale-125" : "text-white"}`}
+          ${favourite ? "text-red-500 scale-125" : "text-white"}
+          ${loading && "text-red-300 scale-150"}`}
         style={{
           ...(!favourite && {
             textShadow:

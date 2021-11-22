@@ -4,86 +4,23 @@ import { connect } from "react-redux";
 import toast from "react-hot-toast";
 
 import { setCurrentCurrency as currencyAction } from "../../../../../Store/Actions/CurrencyAction";
+import {
+  currencies,
+  convertToLabelValuePair,
+} from "../../../../../utils/optionsForSelectors";
 
 type mapDispatchProps = ReturnType<typeof mapDispatchToProps>;
 
 type IProps = mapDispatchProps;
 
 const CurrencySelector: React.FC<IProps> = ({ setCurrentCurrency }) => {
-  const currencies = [
-    "btc",
-    "eur",
-    "inr",
-    "usd",
-    "aed",
-    "ars",
-    "aud",
-    "bch",
-    "bdt",
-    "bhd",
-    "bmd",
-    "bnb",
-    "brl",
-    "cad",
-    "chf",
-    "clp",
-    "cny",
-    "czk",
-    "dkk",
-    "dot",
-    "eos",
-    "eth",
-    "gbp",
-    "hkd",
-    "huf",
-    "idr",
-    "ils",
-    "jpy",
-    "krw",
-    "kwd",
-    "link",
-    "lkr",
-    "ltc",
-    "mmk",
-    "mxn",
-    "myr",
-    "ngn",
-    "nok",
-    "nzd",
-    "php",
-    "pkr",
-    "pln",
-    "rub",
-    "sar",
-    "sek",
-    "sgd",
-    "thb",
-    "try",
-    "twd",
-    "uah",
-    "vef",
-    "vnd",
-    "xrp",
-    "xlm",
-    "yfi",
-  ];
-
-  const options: any = [];
-
-  const currencyToOption = (currencies: any) => {
-    currencies.map((curr: any) => {
-      options.push({ value: curr, label: curr });
-    });
-    return options;
-  };
-
   return (
     <Select
       onChange={(e) => {
         setCurrentCurrency(e?.value);
         toast.success(`Currency set to ${e?.value}`);
       }}
-      options={currencyToOption(currencies)}
+      options={convertToLabelValuePair(currencies)}
       defaultValue={{ label: "inr", value: "inr" }}
       className="text-white"
       theme={(theme) => ({

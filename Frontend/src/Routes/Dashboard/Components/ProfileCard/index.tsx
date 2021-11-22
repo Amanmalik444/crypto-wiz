@@ -1,6 +1,8 @@
+import * as React from "react";
 import moment from "moment";
-import { Connect } from "../../../../Components/Mansions";
 
+import { Button } from "../../../../Components/Bricks";
+import ConnectModal from "../../../../Components/Modals/ConnectModal";
 import userImg from "../../../../utils/user.png";
 
 interface IProps {
@@ -12,6 +14,10 @@ const ProfileCard: React.FC<IProps> = ({
   coinsSaved = 0,
   followersNumber = 0,
 }) => {
+  const [connectModalVisibile, setConnectModalVisibility] =
+    React.useState<boolean>(false);
+  const [defaultTab, setDefaultTab] = React.useState<string>("Follow");
+
   let element = document.getElementById("favouriteList");
   const user = JSON.parse(localStorage.getItem("user") as string);
 
@@ -78,23 +84,53 @@ const ProfileCard: React.FC<IProps> = ({
                 </p>
               </div>
               <div className="flex-1 inline-flex items-center">
-                <Connect defaultTab="Followers">
-                  <i className="bx bxs-user-plus mr-2 text-xl cursor-pointer" />
-                </Connect>
-                <Connect defaultTab="Followers">
-                  <p className="cursor-pointer">
-                    {followersNumber}{" "}
-                    {followersNumber > 1 ? "Followers" : "Follower"}
-                  </p>
-                </Connect>
+                <i
+                  className="bx bxs-user-plus mr-2 text-xl cursor-pointer"
+                  onClick={() => {
+                    setDefaultTab("Followers");
+                    setConnectModalVisibility(true);
+                  }}
+                />
+                <p
+                  className="cursor-pointer"
+                  onClick={() => {
+                    setDefaultTab("Followers");
+                    setConnectModalVisibility(true);
+                  }}
+                >
+                  {followersNumber}{" "}
+                  {followersNumber > 1 ? "Followers" : "Follower"}
+                </p>
               </div>
             </div>
             <div className="mr-2">
-              <Connect defaultTab="Follow" />
+              <Button
+                rounded="lg"
+                bgch="gray-800"
+                bgc="white"
+                color="gray-100"
+                colorh="white"
+                classes="w-28 h-8 bg-gray-600"
+                onClick={() => {
+                  setDefaultTab("Follow");
+                  setConnectModalVisibility(true);
+                }}
+              >
+                Connect
+              </Button>
             </div>
           </div>
         </div>
       </div>
+      {connectModalVisibile && (
+        <ConnectModal
+          openModal={connectModalVisibile}
+          closeModal={() => {
+            setConnectModalVisibility(false);
+          }}
+          defaultTab={defaultTab}
+        />
+      )}
     </div>
   );
 };
