@@ -41,7 +41,7 @@ const Register: React.FC<IProps> = ({ setPageToShow }) => {
         history.push("/login");
       })
       .catch((err) => {
-        toast.error(err.response.data);
+        toast.error((err && err.response?.data) || "An error occurred");
         toast.dismiss("register");
         setLoading(false);
         console.log(err);
@@ -59,7 +59,7 @@ const Register: React.FC<IProps> = ({ setPageToShow }) => {
           Name
         </label>
         <input
-          className="w-64 shadow appearance-none border rounded py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline"
+          className="w-64 shadow appearance-none border rounded py-2 px-3 text-gray-800"
           id="username"
           placeholder="Enter Name"
           value={name}
@@ -72,7 +72,7 @@ const Register: React.FC<IProps> = ({ setPageToShow }) => {
           Username
         </label>
         <input
-          className="w-64 shadow appearance-none border rounded py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline"
+          className="w-64 shadow appearance-none border rounded py-2 px-3 text-gray-800"
           id="username"
           placeholder="Enter Username"
           value={userName}
@@ -85,7 +85,7 @@ const Register: React.FC<IProps> = ({ setPageToShow }) => {
           Password
         </label>
         <input
-          className="w-64 shadow appearance-none border rounded py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline"
+          className="w-64 shadow appearance-none border rounded py-2 px-3 text-gray-800"
           id="password"
           placeholder="Enter Password"
           value={password}

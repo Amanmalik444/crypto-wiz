@@ -10,6 +10,8 @@ TODO: otp verification in login
 
 TODO: add note feature in coin card
 
+TODO: breadcrumbs
+
 TODO: coin market - symbol position on longer names
 
 TODO: search bar
@@ -29,3 +31,5 @@ TODO: new navbar
 TODO: unfollow in connect
 
 TODO: avoiding fetching all details in dashboard network tab
+
+TODO: bug in updateProfile -change name refresh, change userName reLogin (fixable by setting user on redux)

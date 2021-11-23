@@ -45,7 +45,7 @@ const Login: React.FC<IProps> = ({ setPageToShow }) => {
         history.push("/");
       })
       .catch((err) => {
-        toast.error(err.response.data);
+        toast.error((err && err.response?.data) || "An error occurred");
         toast.dismiss("login");
         setLoading(false);
       });
@@ -53,7 +53,8 @@ const Login: React.FC<IProps> = ({ setPageToShow }) => {
 
   return (
     <form
-      className="z-50 absolute bg-black shadow-2xl rounded rounded-lg p-12 px-8  flex flex-col justify-center items-center "
+      className="z-50 absolute bg-black shadow-2xl rounded rounded-lg p-12 px-8 
+      flex flex-col justify-center items-center "
       onSubmit={Submit}
     >
       <img className="h-12 w-auto mb-6" src={logo} alt="Crypto Wiz" />
@@ -62,7 +63,7 @@ const Login: React.FC<IProps> = ({ setPageToShow }) => {
           Username
         </label>
         <input
-          className="w-64 shadow appearance-none border rounded py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline"
+          className="w-64 shadow appearance-none border rounded py-2 px-3 text-gray-800"
           id="username"
           placeholder="Enter Username"
           onChange={(e) => setUserName(e.target.value)}
@@ -74,7 +75,7 @@ const Login: React.FC<IProps> = ({ setPageToShow }) => {
           Password
         </label>
         <input
-          className="w-64 shadow appearance-none border rounded py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline"
+          className="w-64 shadow appearance-none border rounded py-2 px-3 text-gray-800"
           id="password"
           type="password"
           placeholder="Enter Password"

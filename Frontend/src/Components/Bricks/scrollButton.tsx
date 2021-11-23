@@ -6,14 +6,9 @@ const Button: React.FC = () => {
     if (
       document.body.scrollTop > 20 ||
       document.documentElement.scrollTop > 20
-      // && document.getElementById("myBtn") !== null
     ) {
-      //@ts-ignore
-      // document.getElementById("myBtn").style.display = "block";
       setDirection("up");
     } else {
-      //@ts-ignore
-      // document.getElementById("myBtn").style.display = "none";
       setDirection("down");
     }
   };
@@ -35,8 +30,10 @@ const Button: React.FC = () => {
         bg-red-600 border border-red-500 rounded-full
         hover:bg-red-500 transition duration-300"
     >
-      <i className={`bx bx-chevron-up transition duration-500 
-       ${direction==="down" && "transform rotate-180"} `} />
+      <i
+        className={`bx bx-chevron-up transition duration-500 
+       ${direction === "down" && "transform rotate-180"} `}
+      />
     </button>
   );
 };

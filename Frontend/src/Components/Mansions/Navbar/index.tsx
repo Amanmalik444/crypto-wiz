@@ -101,8 +101,32 @@ const Navbar: React.FC = () => {
                     </div>
                     <div className="ml-4 mr-4 w-px h-8 bg-gray-800 rounded rounded-lg" />
                     <CurrencySelector />
-                    <div className="ml-4 text-gray-300 hover:bg-gray-950 hover:text-white rounded-md text-sm font-medium">
-                      <span>Status : {status}</span>
+                    <div
+                      className={`flex flex-row justify-center items-center ml-4 px-4 py-2 text-sm
+                      rounded-md cursor-default font-medium border border-${
+                        status === "Online"
+                          ? "green-800"
+                          : status === "Offline"
+                          ? "red-600"
+                          : "gray-600"
+                      } text-gray-300 gap-2`}
+                    >
+                      <div
+                        className={`p-1 bg-${
+                          status === "Online"
+                            ? "green"
+                            : status === "Offline"
+                            ? "red"
+                            : "gray"
+                        }-500 border-2 border-${
+                          status === "Online"
+                            ? "green"
+                            : status === "Offline"
+                            ? "red"
+                            : "gray"
+                        }-600 rounded-full`}
+                      />
+                      {status}
                     </div>
                   </div>
                 </div>
@@ -165,10 +189,31 @@ const Navbar: React.FC = () => {
                   </a>
                 ))}
                 <div
-                  className="text-gray-300 hover:bg-gray-950 hover:text-white 
-                px-3 py-2 rounded-md text-sm font-medium"
+                  className={`flex flex-row justify-center items-center px-4 py-2 text-sm
+                      rounded-md font-medium border border-${
+                        status === "Online"
+                          ? "green-800"
+                          : status === "Offline"
+                          ? "red-600"
+                          : "gray-600"
+                      } text-gray-300 gap-2`}
                 >
-                  <span>Status : {status}</span>
+                  <div
+                    className={`p-1 bg-${
+                      status === "Online"
+                        ? "green"
+                        : status === "Offline"
+                        ? "red"
+                        : "gray"
+                    }-500 border-2 border-${
+                      status === "Online"
+                        ? "green"
+                        : status === "Offline"
+                        ? "red"
+                        : "gray"
+                    }-600 rounded-full`}
+                  />
+                  {status}
                 </div>
                 <div className="px-3 py-2">
                   <CurrencySelector />

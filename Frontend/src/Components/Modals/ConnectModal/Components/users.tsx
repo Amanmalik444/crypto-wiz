@@ -118,7 +118,6 @@ const Users: React.FC<IProps> = ({
                 sendRequest(useCase);
               }}
               disabled={status !== useCase || loading}
-              loading={loading}
             >
               {status}
             </Button>
@@ -126,9 +125,7 @@ const Users: React.FC<IProps> = ({
         </div>
         {useCase === "Accept" && (
           <i
-            className={`bx bx${
-              loading ? "s" : ""
-            }-trash ml-2 text-xl cursor-pointer`}
+            className={`bx bx-trash ml-2 text-xl cursor-pointer`}
             onClick={() => {
               sendRequest("Remove");
             }}

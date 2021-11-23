@@ -29,7 +29,6 @@ const useData = () => {
         }
       )
       .then((res: any) => {
-        console.log(res.data);
         setLoading(false);
         setFavData(res.data.favData);
         setFollowersNumber(res.data.followersNumber);

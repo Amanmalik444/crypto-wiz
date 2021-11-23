@@ -25,9 +25,8 @@ const generateAuthTokenForUser = (user, callback) => {
     }
   );
 };
- 
+
 router.post("/", (req, res) => {
-  console.log(req.body);
   User.findOne({ userName: req.body.userName })
     .then((user) => {
       if (user) {

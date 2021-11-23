@@ -25,7 +25,7 @@ const Details = ({
       className="flex flex-col items-center justify-center
         backdrop-filter backdrop-blur-sm text-black
         bg-white hover:bg-gray-800 hover:text-white bg-opacity-50
-        p-3 w-52 rounded-md cursor-pointer"
+        p-3 w-52 rounded-md cursor-pointer transition duration-300 ease-out"
       onClick={() => {
         history.push(`/coin/${id}`);
       }}

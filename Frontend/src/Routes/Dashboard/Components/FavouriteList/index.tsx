@@ -17,7 +17,7 @@ const FavouriteList: React.FC<IProps> = ({
   const history = useHistory();
   return (
     <div
-      className="py-1 flex flex-wrap items-start justify-center mx-10"
+      className="py-1 flex flex-wrap items-start justify-center w-5/6"
       id="favouriteList"
     >
       {loading ? (

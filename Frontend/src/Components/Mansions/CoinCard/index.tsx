@@ -32,7 +32,7 @@ const CoinCard = ({
   return (
     <div
       className="m-4 h-60 w-60
-      container shadow-md hover:shadow-xl 
+      container shadow-md hover:shadow-xl transition duration-300 ease-out
       bg-white bg-contain bg-no-repeat bg-center 
       rounded-xl"
       style={{

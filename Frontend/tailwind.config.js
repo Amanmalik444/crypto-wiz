@@ -542,6 +542,7 @@ module.exports = {
       "6xl": "72rem",
       "7xl": "80rem",
       full: "100%",
+      "3/4": "75%",
       "11/12": "91.66%",
       min: "min-content",
       max: "max-content",

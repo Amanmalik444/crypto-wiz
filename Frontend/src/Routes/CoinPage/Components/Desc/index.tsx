@@ -29,7 +29,7 @@ const Desc = ({ categories, description, links, platforms }: IProps) => {
       w-full py-5"
     >
       <hr className="w-4/5 pb-2" />
-      <div className="flex flex-row flex-wrap items-center justify-center ml-3 mr-3">
+      <div className="flex flex-row flex-wrap items-center justify-center mx-3">
         <p className="text-sm font-medium w-32 text-center">Categories </p>
         {categories &&
           categories.map((cat: string) => {
@@ -37,7 +37,7 @@ const Desc = ({ categories, description, links, platforms }: IProps) => {
           })}
       </div>
       <p
-        className={`my-1 text-sm font-small text-start max-w-11/12
+        className={`my-1 text-sm font-small text-start max-w-3/4
       ${readMoreClicked ? "" : "truncate"}`}
       >
         {ReactHtmlParser(des)}

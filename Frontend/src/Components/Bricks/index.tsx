@@ -8,7 +8,7 @@ import TextData from "./TextData";
 import Footer from "./Footer";
 import Toast from "./Toast";
 import TabSwitch from "./TabSwitch";
-import ScrollButton from "./scrollButton";
+import ScrollButton from "./ScrollButton";
 import NoDataFetched from "./NoDataFetched";
 import Dropdown from "./Dropdown";
 
