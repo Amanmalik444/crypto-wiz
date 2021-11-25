@@ -2,8 +2,8 @@ import * as React from "react";
 import moment from "moment";
 
 import { Button } from "../../../../Components/Bricks";
-import ConnectModal from "../../../../Components/Modals/ConnectModal";
-import userImg from "../../../../utils/user.png";
+import { ConnectModal } from "../../../../Components/Modals";
+import { userImg } from "../../../../utils";
 
 interface IProps {
   coinsSaved?: number;
@@ -122,15 +122,13 @@ const ProfileCard: React.FC<IProps> = ({
           </div>
         </div>
       </div>
-      {connectModalVisibile && (
-        <ConnectModal
-          openModal={connectModalVisibile}
-          closeModal={() => {
-            setConnectModalVisibility(false);
-          }}
-          defaultTab={defaultTab}
-        />
-      )}
+      <ConnectModal
+        openModal={connectModalVisibile}
+        closeModal={() => {
+          setConnectModalVisibility(false);
+        }}
+        defaultTab={defaultTab}
+      />
     </div>
   );
 };

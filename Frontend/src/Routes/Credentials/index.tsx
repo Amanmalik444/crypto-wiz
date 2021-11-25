@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { Canvas } from "../../Components/Mansions";
 import Login from "./Components/LoginPage";
 import Register from "./Components/RegistrationPage";

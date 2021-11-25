@@ -4,10 +4,7 @@ import { connect } from "react-redux";
 import toast from "react-hot-toast";
 
 import { setCurrentCurrency as currencyAction } from "../../../../../Store/Actions/CurrencyAction";
-import {
-  currencies,
-  convertToLabelValuePair,
-} from "../../../../../utils/optionsForSelectors";
+import { currencies, convertToLabelValuePair } from "../../../../../utils";
 
 type mapDispatchProps = ReturnType<typeof mapDispatchToProps>;
 

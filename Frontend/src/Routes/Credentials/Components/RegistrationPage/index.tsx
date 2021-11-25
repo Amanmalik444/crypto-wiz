@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-import logo from "../../../../utils/logo.gif";
+import { logo } from "../../../../utils";
 import { Button } from "../../../../Components/Bricks";
 
 interface IState {

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Redirect } from "react-router-dom";
 
-import logo from "../../utils/logo.gif";
+import { logo } from "../../utils";
 
 const LandingPage = () => {
   const [timedOut, setTimedOut] = React.useState<boolean>(false);

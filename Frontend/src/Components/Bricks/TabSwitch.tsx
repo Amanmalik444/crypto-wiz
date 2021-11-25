@@ -20,7 +20,7 @@ const TabSwitch: React.FC<IProps> = ({ options, active, setActive }) => {
               onClick={() => {
                 setActive(option);
               }}
-              className={`px-4 pb-2 text-gray-400 border-gray-200 border-b-2
+              className={`px-4 pb-2 text-gray-400 border-white border-b-2
             transition duration-500 ease-out hover:text-gray-600 hover:border-gray-400
             ${
               option === active &&

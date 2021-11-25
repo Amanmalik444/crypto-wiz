@@ -2,7 +2,7 @@ import * as React from "react";
 import toast from "react-hot-toast";
 // import { useHistory } from "react-router-dom";
 
-import ShareModal from "../../../Modals/ShareModal";
+import { ShareModal } from "../../../Modals";
 
 interface IProps {
   coinName?: string;
@@ -33,7 +33,7 @@ const ShareIcon = ({ coinName = "the coin", coinId = "id" }: IProps) => {
         <div
           className="absolute bg-gradient-to-t from-black to-gray-700
         text-white py-2 rounded-lg transition-all duration-300 bottom-6 -left-9
-        flex flex-row justify-center w-24 text-sm font-medium z-20 opacity-0"
+        flex flex-row justify-center w-24 text-sm font-medium opacity-0"
           ref={tipRef}
         >
           <div className="bg-black h-3 w-3 absolute top-7 transform rotate-45" />
@@ -53,14 +53,12 @@ const ShareIcon = ({ coinName = "the coin", coinId = "id" }: IProps) => {
           onMouseLeave={leave}
         />
       </div>
-      {openModal && (
-        <ShareModal
-          coinName={coinName}
-          coinId={coinId}
-          toggleModal={toggleModal}
-          openModal={openModal}
-        />
-      )}
+      <ShareModal
+        coinName={coinName}
+        coinId={coinId}
+        toggleModal={toggleModal}
+        openModal={openModal}
+      />
     </>
   );
 };

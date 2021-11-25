@@ -1,5 +1,6 @@
-import khaby from "../../../utils/khabyBro.jpg";
 import { useHistory } from "react-router-dom";
+
+import { khaby } from "../../../utils";
 import { Button } from "../../Bricks";
 
 const Khaby = () => {

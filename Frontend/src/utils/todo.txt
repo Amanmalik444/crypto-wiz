@@ -1,0 +1,33 @@
+
+
+TODO: show followers in users tab
+
+TODO: bug in updateProfile -change name refresh, change userName reLogin (fixable by setting user on redux)
+
+TODO: new navbar
+
+TODO: avoiding fetching all details in dashboard network tab
+
+TODO: coin market - tabular view
+
+TODO: otp verification in login
+
+TODO: add note feature in coin card
+
+TODO: breadcrumbs
+
+TODO: jwt and user to cryptoWizJWT and cryptoWizUSER
+
+TODO: news page  
+
+TODO: search bar
+
+TODO: coin page - links and platforms
+
+TODO: coingecko events
+
+TODO: improve clicking on card to open details
+
+TODO: liv icons
+
+TODO: upvote downvote system

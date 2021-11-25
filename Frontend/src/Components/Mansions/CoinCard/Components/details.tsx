@@ -30,8 +30,8 @@ const Details = ({
         history.push(`/coin/${id}`);
       }}
     >
-      <div className="flex flex-row flex-wrap">
-        <p className="text-xl font-medium">{name}</p>
+      <div className="flex flex-row">
+        <p className="text-lg font-medium">{name}</p>
         <p className="text-xs font-small">{symbol}</p>
       </div>
       {currency && (current_price || current_price === 0) && (

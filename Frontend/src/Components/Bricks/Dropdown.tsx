@@ -1,5 +1,5 @@
 import * as React from "react";
-import userImg from "../../utils/user.png";
+import { userImg } from "../../utils";
 
 interface IProps {
   className?: string;
@@ -27,10 +27,10 @@ const Dropdown: React.FC<IProps> = ({ children, className }) => {
         />
         <div
           className={`${
-            openDrop ? "block translate-y-2" : "invisible translate-y-12"
+            openDrop ? "block scale-100" : "invisible scale-50"
           } z-30 origin-top-right absolute right-0 w-36 text-gray-700 text-sm
           rounded-md shadow-lg bg-white divide-y divide-gray-200
-          transition-all duration-100 ease-in transform`}
+          transition-all duration-100 ease-in transform mt-2`}
           onClick={(e) => {
             setOpenDrop(false);
             e.stopPropagation();

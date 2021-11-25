@@ -2,7 +2,7 @@ import * as React from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-import { Spinner, Button } from "../../../Bricks";
+import { Button } from "../../../Bricks";
 
 interface IProps {
   goBack?: () => void;
@@ -112,7 +112,7 @@ const SettingsModal: React.FC<IProps> = ({
               </label>
               <input
                 className="w-64 border rounded py-2 px-4 text-gray-800"
-                id="username"
+                id="name"
                 placeholder={user.name}
                 value={name}
                 onChange={(e) => setName(e.target.value)}

@@ -1,10 +1,7 @@
 import * as React from "react";
 import Select from "react-select";
 
-import {
-  orderOptionsCoinMarket,
-  categoriesCoinMarket,
-} from "../../../utils/optionsForSelectors";
+import { orderOptionsCoinMarket, categoriesCoinMarket } from "../../../utils";
 
 interface IProps {
   setOrder: any;

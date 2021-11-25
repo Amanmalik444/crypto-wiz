@@ -3,12 +3,11 @@ import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useHistory, useLocation, NavLink } from "react-router-dom";
 
-import logo from "../../../utils/logo.gif";
+import useData from "./data";
+import { logo } from "../../../utils";
 import CurrencySelector from "./Components/CurrencySelector";
 import { Dropdown } from "../../Bricks";
-import useData from "./data";
-import ConnectModal from "../../Modals/ConnectModal";
-import SettingsModal from "../../Modals/SettingsModal";
+import { SettingsModal, ConnectModal } from "../../Modals";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
@@ -223,23 +222,19 @@ const Navbar: React.FC = () => {
           </>
         )}
       </Disclosure>
-      {connectModalVisibile && (
-        <ConnectModal
-          openModal={connectModalVisibile}
-          closeModal={() => {
-            setConnectModalVisibility(false);
-          }}
-          defaultTab={"Requests"}
-        />
-      )}
-      {settingsModalVisibile && (
-        <SettingsModal
-          openModal={settingsModalVisibile}
-          closeModal={() => {
-            setSettingsModalVisibility(false);
-          }}
-        />
-      )}
+      <ConnectModal
+        openModal={connectModalVisibile}
+        closeModal={() => {
+          setConnectModalVisibility(false);
+        }}
+        defaultTab={"Requests"}
+      />
+      <SettingsModal
+        openModal={settingsModalVisibile}
+        closeModal={() => {
+          setSettingsModalVisibility(false);
+        }}
+      />
     </div>
   );
 };

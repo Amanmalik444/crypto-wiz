@@ -101,6 +101,27 @@ router.post("/Remove", (req, res) => {
     });
 });
 
+router.post("/Unfollow", (req, res) => {
+  const { userId, toConnectId } = req.body;
+  //inverted
+  connection
+    .findOneAndRemove({ userId: toConnectId, requestorId: userId })
+    .then(() => {
+      user
+        .updateOne({ _id: toConnectId }, { $pull: { followers: userId } })
+        .then(() => {
+          res.json("Unfollowed");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json("An error occured");
+    });
+});
+
 router.post("/fetchFollowTabStatus", (req, res) => {
   const { userId, toConnectId } = req.body;
   //inverted
@@ -108,7 +129,13 @@ router.post("/fetchFollowTabStatus", (req, res) => {
     .findOne({ userId: toConnectId, requestorId: userId })
     .then((conn) => {
       console.log(conn);
-      res.json(conn?.status || "Follow");
+      res.json(
+        conn && conn?.status === "Accepted"
+          ? "Unfollow"
+          : conn && conn?.status === "Pending"
+          ? "Pending"
+          : "Follow"
+      );
     })
     .catch((err) => {
       console.log(err);

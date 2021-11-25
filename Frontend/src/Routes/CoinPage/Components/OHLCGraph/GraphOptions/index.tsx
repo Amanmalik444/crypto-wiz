@@ -3,7 +3,7 @@ import Select from "react-select";
 import { Toggle } from "tailwind-mobile/react";
 import toast from "react-hot-toast";
 
-import { dayOptionsCoinPage } from "../../../../../utils/optionsForSelectors";
+import { dayOptionsCoinPage } from "../../../../../utils";
 
 interface IProps {
   setDays: any;

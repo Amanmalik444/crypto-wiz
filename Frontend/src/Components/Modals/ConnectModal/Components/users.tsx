@@ -25,10 +25,9 @@ const Users: React.FC<IProps> = ({
   toConnectId = "",
 }) => {
   const [loading, setLoading] = React.useState<boolean>(false);
-  const [status, setStatus] = React.useState<string>(useCase);
+  const [status, setStatus] = React.useState<string>("");
 
   React.useEffect(() => {
-    setLoading(true);
     axios
       .post(
         `${process.env.REACT_APP_SERVER_LINK}/connect/fetch${useCase}TabStatus`,
@@ -40,12 +39,10 @@ const Users: React.FC<IProps> = ({
         }
       )
       .then((res: any) => {
-        setLoading(false);
         setStatus(res.data || "Error");
       })
       .catch(() => {
         toast.error("An error occured");
-        setLoading(false);
       });
   }, [useCase]);
 
@@ -69,6 +66,8 @@ const Users: React.FC<IProps> = ({
             ? "Request sent successfully"
             : type === "Accept"
             ? "Request Accepted"
+            : type === "Unfollow"
+            ? "Unfollowed"
             : useCase === "Followers"
             ? "Follower Removed"
             : "Request Removed"
@@ -112,12 +111,15 @@ const Users: React.FC<IProps> = ({
               color="white"
               colorh="white"
               classes={`w-24 h-7 bg-gray-700 my-1 rounded-full ${
-                status !== useCase && "opacity-40"
+                status !== useCase && status !== "Unfollow" && "opacity-40"
               }`}
               onClick={() => {
-                sendRequest(useCase);
+                sendRequest(status === "Unfollow" ? "Unfollow" : useCase);
               }}
-              disabled={status !== useCase || loading}
+              disabled={
+                (status !== useCase && status !== "Unfollow") || loading
+              }
+              loading={loading}
             >
               {status}
             </Button>
