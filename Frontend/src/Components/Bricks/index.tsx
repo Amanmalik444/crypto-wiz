@@ -11,6 +11,7 @@ import TabSwitch from "./TabSwitch";
 import ScrollButton from "./ScrollButton";
 import NoDataFetched from "./NoDataFetched";
 import Dropdown from "./Dropdown";
+import Selector from "./Selector";
 
 export {
   Button,
@@ -26,4 +27,5 @@ export {
   NoDataFetched,
   TabSwitch,
   Dropdown,
+  Selector,
 };

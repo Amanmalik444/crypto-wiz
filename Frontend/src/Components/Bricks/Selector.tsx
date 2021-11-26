@@ -8,7 +8,7 @@ interface IProps {
   dropHeader?: string;
 }
 
-const Dropdown: React.FC<IProps> = ({
+const Selector: React.FC<IProps> = ({
   children,
   className = "",
   dropImage,
@@ -52,10 +52,10 @@ const Dropdown: React.FC<IProps> = ({
         />
         <div
           className={`${
-            openDrop ? "block scale-100 animate-expandlg" : "invisible scale-50"
+            openDrop ? "block scale-100" : "invisible scale-50"
           } z-30 origin-top-right absolute right-0 w-36 text-gray-700 text-sm
-          rounded-md shadow-lg bg-white divide-y divide-gray-200 mt-2
-          transition-all duration-100 ease-in transform`}
+          rounded-md shadow-lg bg-white divide-y divide-gray-200
+          transition-all duration-100 ease-in transform mt-2`}
           onClick={(e) => {
             setOpenDrop(false);
             e.stopPropagation();
@@ -68,4 +68,4 @@ const Dropdown: React.FC<IProps> = ({
   );
 };
 
-export default Dropdown;
+export default Selector;

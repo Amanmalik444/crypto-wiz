@@ -110,7 +110,7 @@ const Users: React.FC<IProps> = ({
               bgc="white"
               color="white"
               colorh="white"
-              classes={`w-24 h-7 bg-gray-700 my-1 rounded-full ${
+              className={`w-24 h-7 bg-gray-700 my-1 rounded-full ${
                 status !== useCase && status !== "Unfollow" && "opacity-40"
               }`}
               onClick={() => {

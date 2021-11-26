@@ -2,6 +2,8 @@ import * as React from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 
+import { orderOptionsCoinMarket, categoriesCoinMarket } from "../../utils";
+
 interface IState {
   data: [];
   loading: boolean;
@@ -15,9 +17,13 @@ interface IState {
 const useData = (currency: string | undefined) => {
   const [data, setData] = React.useState<IState["data"]>();
   const [loading, setLoading] = React.useState<IState["loading"]>(false);
-  const [order, setOrder] = React.useState<IState["order"]>("market_cap_desc");
+  const [order, setOrder] = React.useState<IState["order"]>(
+    orderOptionsCoinMarket[0].value
+  );
   const [page, setPage] = React.useState<IState["page"]>(1);
-  const [category, setCategory] = React.useState<IState["category"]>("all_cat");
+  const [category, setCategory] = React.useState<IState["category"]>(
+    categoriesCoinMarket[0].value
+  );
   const [favData, setFavData] = React.useState<IState["favData"]>([]);
   const [flagNumberFavData, setFlagNumberFavData] =
     React.useState<IState["refetchFavData"]>(0);
@@ -58,9 +64,9 @@ const useData = (currency: string | undefined) => {
     }
     axios
       .get(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}${
-          category !== "all_cat" ? `&category=${category}` : ""
-        }&order=${order}&per_page=24&page=${page}&sparkline=false`
+        `https://api.coingecko.com/api/v3/coins/markets?per_page=24&sparkline=false
+        ${category !== "all_cat" ? `&category=${category}` : ""}
+        &vs_currency=${currency}&order=${order}&page=${page}`
       )
       .then((res: any) => {
         setData(res.data);
@@ -73,7 +79,15 @@ const useData = (currency: string | undefined) => {
       });
   }, [currency, order, category, page]);
 
-  const states = { data, loading, category, page, favData };
+  const states = {
+    data,
+    loading,
+    category,
+    page,
+    favData,
+    orderOptionsCoinMarket,
+    categoriesCoinMarket,
+  };
 
   return { states, setOrder, setPage, setCategory, increaseFavFlagNumber };
 };

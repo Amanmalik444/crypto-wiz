@@ -96,10 +96,13 @@ const FavouriteIcon = ({
         onClick={() => {
           !loading && favourite ? removeFromFavourite() : setAsFavourite();
         }}
-        className={`transition duration-200
+        className={`transition
           bx bxs-heart cursor-pointer transform
-          ${favourite ? "text-red-500 scale-125" : "text-white"}
-          ${loading && "text-red-300 scale-150"}`}
+          ${
+            favourite
+              ? "text-red-500 animate-expandHeart scale-125"
+              : "text-white animate-shrinkHeart"
+          }`}
         style={{
           ...(!favourite && {
             textShadow:

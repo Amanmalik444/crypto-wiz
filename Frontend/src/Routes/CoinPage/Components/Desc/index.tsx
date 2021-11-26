@@ -20,14 +20,8 @@ const Desc = ({ categories, description, links, platforms }: IProps) => {
       '<a style=" text-decoration: underline; font-weight: 450;" '
     );
 
-  // console.log(links);
-  // console.log(platforms);
-
   return (
-    <div
-      className="flex flex-col flex-wrap items-center justify-center 
-      w-full py-5"
-    >
+    <div className="flex flex-col flex-wrap items-center justify-center w-full py-5">
       <hr className="w-4/5 pb-2" />
       <div className="flex flex-row flex-wrap items-center justify-center mx-3">
         <p className="text-sm font-medium w-32 text-center">Categories </p>
@@ -42,14 +36,14 @@ const Desc = ({ categories, description, links, platforms }: IProps) => {
       >
         {ReactHtmlParser(des)}
       </p>
-      {!readMoreClicked && (
+      {!readMoreClicked && des.length > 50 && (
         <Button
           rounded="md"
           bgch="gray-700"
           bgc="gray-500"
           color="white"
           colorh="white"
-          classes="w-24 h-7 my-2 text-sm"
+          className="w-24 h-7 my-2 text-sm"
           outline={false}
           onClick={() => {
             setReadMore(true);

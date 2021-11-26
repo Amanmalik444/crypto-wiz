@@ -1,4 +1,5 @@
 import * as React from "react";
+import toast from "react-hot-toast";
 
 import { Modal, ModalBody, ModalHeader } from "../../Bricks";
 import ProfileEditForm from "./Components/profileEditForm";
@@ -51,7 +52,7 @@ const SettingsModal: React.FC<IProps> = ({ openModal, closeModal }) => {
                 <h1
                   className="cursor-pointer p-4 font-bold underline text-blue-500 hover:text-blue-800"
                   onClick={() => {
-                    setChngPassFormVisib(true);
+                    toast.success("WOHOOO I won't let you go...");
                   }}
                 >
                   Delete Account

@@ -4,7 +4,7 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useHistory, useLocation, NavLink } from "react-router-dom";
 
 import useData from "./data";
-import { logo } from "../../../utils";
+import { logo, userImg } from "../../../utils";
 import CurrencySelector from "./Components/CurrencySelector";
 import { Dropdown } from "../../Bricks";
 import { SettingsModal, ConnectModal } from "../../Modals";
@@ -29,9 +29,9 @@ const Navbar: React.FC = () => {
       current: location.pathname === "/market",
     },
     {
-      name: "News",
-      href: "/news",
-      current: location.pathname === "/news",
+      name: "Status Updates",
+      href: "/statusUpdates",
+      current: location.pathname === "/statusUpdates",
     },
   ];
 
@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
                       alt="Crypto Wiz"
                     />
                   </div>
-                  <div className="hidden sm:flex flex-row justify-center items-center ml-4">
+                  <div className="hidden sm:flex flex-row flex-wrap justify-center items-center ml-4">
                     <div>
                       {navigation.map((item) => (
                         <NavLink
@@ -134,7 +134,7 @@ const Navbar: React.FC = () => {
                   className="absolute inset-y-0 right-0 flex items-center pr-2 
                 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
                 >
-                  <Dropdown>
+                  <Dropdown dropImage={userImg}>
                     <div>
                       <p
                         className="block px-4 rounded-t-lg bg-white py-2 pt-3 

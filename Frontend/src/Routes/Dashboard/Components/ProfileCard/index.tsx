@@ -110,11 +110,12 @@ const ProfileCard: React.FC<IProps> = ({
                 bgc="white"
                 color="gray-100"
                 colorh="white"
-                classes="w-28 h-8 bg-gray-600"
+                className="w-28 h-8 bg-gray-600"
                 onClick={() => {
                   setDefaultTab("Follow");
                   setConnectModalVisibility(true);
                 }}
+                withoutAnimation
               >
                 Connect
               </Button>

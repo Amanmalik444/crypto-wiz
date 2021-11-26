@@ -2,9 +2,7 @@ import { connect } from "react-redux";
 import toast from "react-hot-toast";
 
 import { Spinner, NoDataFetched } from "../../Components/Bricks";
-import { CoinCard } from "../../Components/Mansions";
-import Filters from "./Components/filters";
-import PageButton from "./Components/pageButton";
+import { CoinCard, Filters, Pagination } from "../../Components/Mansions";
 import useData from "./data";
 
 type mapStateProps = ReturnType<typeof mapStateToProps>;
@@ -15,11 +13,23 @@ const CoinMarket: React.FC<IProps> = ({ currency = "inr" }) => {
   const { states, setOrder, setPage, setCategory, increaseFavFlagNumber } =
     useData(currency);
 
-  const { data, loading, page, favData } = states;
+  const {
+    data,
+    loading,
+    page,
+    favData,
+    orderOptionsCoinMarket,
+    categoriesCoinMarket,
+  } = states;
 
   return (
     <div className="pt-20 bg-gray-200 flex flex-col flex-wrap items-center justify-center">
-      <Filters setOrder={setOrder} setCategory={setCategory} />
+      <Filters
+        selectArray={[
+          { setHook: setOrder, options: orderOptionsCoinMarket },
+          { setHook: setCategory, options: categoriesCoinMarket },
+        ]}
+      />
       {loading ? (
         <Spinner height="4xl" className="my-60" />
       ) : data && data!.length > 0 ? (
@@ -56,7 +66,7 @@ const CoinMarket: React.FC<IProps> = ({ currency = "inr" }) => {
         />
       )}
       <hr className="w-4/5 h-0.5 bg-gray-300 color-black mt-2" />
-      <PageButton
+      <Pagination
         setPage={setPage}
         page={page}
         className="mt-5 bg-opacity-20"

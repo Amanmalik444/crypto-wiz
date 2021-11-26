@@ -166,7 +166,7 @@ const SettingsModal: React.FC<IProps> = ({
             bgc="white"
             color="white"
             colorh="white"
-            classes="w-20 h-8 bg-red-500 text-center"
+            className="w-20 h-8 bg-red-500 text-center"
             disabled={loading}
             onClick={goBack}
           >
@@ -180,8 +180,7 @@ const SettingsModal: React.FC<IProps> = ({
             bgc="white"
             color="white"
             colorh="white"
-            classes="w-32 h-8 bg-gray-800 ml-8"
-            disabled={loading}
+            className="w-32 h-8 bg-gray-800 ml-8"
             loading={loading}
           >
             Update

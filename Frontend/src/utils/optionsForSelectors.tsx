@@ -68,22 +68,6 @@ export const orderOptionsCoinMarket = [
   {
     label: (
       <p>
-        <i className="bx bx-down-arrow-alt" /> Volume
-      </p>
-    ),
-    value: "volume_desc",
-  },
-  {
-    label: (
-      <p>
-        <i className="bx bx-up-arrow-alt" /> Volume
-      </p>
-    ),
-    value: "volume_asc",
-  },
-  {
-    label: (
-      <p>
         <i className="bx bx-down-arrow-alt" /> Market cap
       </p>
     ),
@@ -97,6 +81,23 @@ export const orderOptionsCoinMarket = [
     ),
     value: "market_cap_asc",
   },
+  {
+    label: (
+      <p>
+        <i className="bx bx-down-arrow-alt" /> Volume
+      </p>
+    ),
+    value: "volume_desc",
+  },
+  {
+    label: (
+      <p>
+        <i className="bx bx-up-arrow-alt" /> Volume
+      </p>
+    ),
+    value: "volume_asc",
+  },
+
   {
     label: (
       <p>
@@ -642,4 +643,28 @@ export const dayOptionsCoinPage = [
   { label: "90 days", value: 90 },
   { label: "180 days", value: 180 },
   { label: "365 days", value: 365 },
+];
+
+export const categoriesNews = [
+  {
+    label: "All categories",
+    value: "all_cat",
+  },
+  { label: "General", value: "general" },
+  { label: "Milestone", value: "milestone" },
+  { label: "Partnership", value: "partnership" },
+  { label: "Exchange listing", value: "exchange_listing" },
+  { label: "Software release", value: "software_release" },
+  { label: "Fund movement", value: "fund_movement" },
+  { label: "New listings", value: "new_listings" },
+  { label: "Event", value: "event" },
+];
+
+export const projectTypes = [
+  {
+    label: "All Project types",
+    value: "all_project_types",
+  },
+  { label: "Coin", value: "coin" },
+  { label: "Market", value: "market" },
 ];

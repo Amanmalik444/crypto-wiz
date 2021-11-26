@@ -10,8 +10,9 @@ interface IProps {
   loading?: boolean;
   rounded?: string;
   type?: "button" | "submit" | "reset" | undefined;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  classes?: string;
+  onClick?: any;
+  className?: string;
+  withoutAnimation?: boolean;
 }
 
 const Button: React.FC<IProps> = ({
@@ -25,9 +26,11 @@ const Button: React.FC<IProps> = ({
   rounded = "none",
   children = "Save",
   type = "button",
-  onClick,
-  classes = "",
+  onClick = () => {},
+  className = "",
+  withoutAnimation = false,
 }) => {
+  const [clickAnimation, setClickAnimation] = React.useState(false);
   return (
     <button
       type={type}
@@ -41,11 +44,17 @@ const Button: React.FC<IProps> = ({
         `hover:text-${colorh} hover:bg-${
           disabled || loading ? "gray-200" : bgch
         }`
+      } ${
+        clickAnimation && !withoutAnimation && "animate-shrink"
       } focus:outline-none focus:shadow-outline ${
         (disabled || loading) && "cursor-auto text-opacity-75"
-      } ${classes}`}
+      } ${className}`}
       disabled={loading || disabled}
-      onClick={onClick}
+      onClick={() => {
+        setClickAnimation(true);
+        onClick();
+      }}
+      onAnimationEnd={() => setClickAnimation(false)}
     >
       {loading && <i className="bx bx-loader-alt bx-spin mr-2" />}
       {children}

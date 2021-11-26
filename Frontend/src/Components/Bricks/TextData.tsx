@@ -15,7 +15,7 @@ const TextData: React.FC<IProps> = ({
 }) => {
   return (
     <div
-      className={`pt-3 flex flex-col items-center justify-center ml-3 mr-3 ${className}`}
+      className={`pt-3 flex flex-col items-center justify-center mx-3 ${className}`}
     >
       <p className="text-xs font-small">{first}</p>
       <p className={`text-xl font-${secondFont}`}>{second}</p>

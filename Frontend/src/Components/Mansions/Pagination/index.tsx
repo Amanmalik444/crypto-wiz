@@ -67,56 +67,14 @@ const Filters: React.FC<IProps> = ({ setPage, page = 1, className = "" }) => {
             className="bx bx-chevron-left text-2xl p-2 border 
             border-gray-300 hover:bg-gray-100"
           />
-          <PageNumberIndicator
-            page={page}
-            numberToShow={pageRangeStart}
-            setPage={setPage}
-          />
-          <PageNumberIndicator
-            page={page}
-            numberToShow={pageRangeStart + 1}
-            setPage={setPage}
-          />
-          <PageNumberIndicator
-            page={page}
-            numberToShow={pageRangeStart + 2}
-            setPage={setPage}
-          />
-          <PageNumberIndicator
-            page={page}
-            numberToShow={pageRangeStart + 3}
-            setPage={setPage}
-          />
-          <PageNumberIndicator
-            page={page}
-            numberToShow={pageRangeStart + 4}
-            setPage={setPage}
-          />
-          <PageNumberIndicator
-            page={page}
-            numberToShow={pageRangeStart + 5}
-            setPage={setPage}
-          />
-          <PageNumberIndicator
-            page={page}
-            numberToShow={pageRangeStart + 6}
-            setPage={setPage}
-          />
-          <PageNumberIndicator
-            page={page}
-            numberToShow={pageRangeStart + 7}
-            setPage={setPage}
-          />
-          <PageNumberIndicator
-            page={page}
-            numberToShow={pageRangeStart + 8}
-            setPage={setPage}
-          />
-          <PageNumberIndicator
-            page={page}
-            numberToShow={pageRangeStart + 9}
-            setPage={setPage}
-          />
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((ind) => (
+            <PageNumberIndicator
+              page={page}
+              numberToShow={pageRangeStart + ind}
+              setPage={setPage}
+            />
+          ))}
+
           <i
             onClick={next}
             className="bx bx-chevron-right text-2xl p-2

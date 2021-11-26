@@ -25,7 +25,7 @@ const Khaby = () => {
           bgc="white"
           color="white"
           colorh="white"
-          classes="w-64 h-10 bg-gray-900"
+          className="w-64 h-10 bg-gray-900"
           onClick={() => {
             history.push(`/`);
             localStorage.setItem("jwt", "");

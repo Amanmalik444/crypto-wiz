@@ -91,7 +91,7 @@ const Login: React.FC<IProps> = ({ setPageToShow }) => {
           bgc="white"
           color="white"
           colorh="white"
-          classes="w-64 h-8 bg-gray-800"
+          className="w-64 h-8 bg-gray-800"
           loading={loading}
         >
           Sign In
