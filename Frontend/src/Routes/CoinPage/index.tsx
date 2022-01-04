@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 
-import { Spinner } from "../../Components/Bricks";
-import DetailCard from "./Components/DetailCard";
-import Stats from "./Components/Stats";
-import Desc from "./Components/Desc";
-import OHLCGraph from "./Components/OHLCGraph";
-import useData from "./data";
+import { Loader } from "Components/Bricks";
+import DetailCard from "Routes/CoinPage/Components/DetailCard";
+import Stats from "Routes/CoinPage/Components/Stats";
+import Description from "Routes/CoinPage/Components/Description";
+import OHLCGraph from "Routes/CoinPage/Components/OHLCGraph";
+import useData from "Routes/CoinPage/data";
 
 const CoinPage = () => {
   const { coinId } = useParams<{ coinId?: string | undefined }>();
@@ -37,7 +37,7 @@ const CoinPage = () => {
   return (
     <div className="flex items-start justify-center w-full pt-24">
       {loading ? (
-        <Spinner height="4xl" className="my-80" />
+        <Loader size="5" width="20" className="my-80" />
       ) : (
         <div className="w-full flex flex-col flex-wrap items-center justify-center">
           <DetailCard
@@ -60,7 +60,7 @@ const CoinPage = () => {
             public_interest_stats={public_interest_stats}
           />
           <OHLCGraph coinId={coinId} name={name} />
-          <Desc
+          <Description
             categories={categories}
             description={description}
             links={links}

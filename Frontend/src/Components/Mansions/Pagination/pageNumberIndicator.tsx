@@ -6,7 +6,7 @@ interface IProps {
   setPage: any;
 }
 
-const Filters: React.FC<IProps> = ({ page = 1, numberToShow = 1, setPage }) => {
+const PageNumberIndicator: React.FC<IProps> = ({ page = 1, numberToShow = 1, setPage }) => {
   return (
     <p
       onClick={() => {
@@ -23,4 +23,4 @@ const Filters: React.FC<IProps> = ({ page = 1, numberToShow = 1, setPage }) => {
   );
 };
 
-export default Filters;
+export default PageNumberIndicator;

@@ -26,6 +26,25 @@ const userSchema = new schema(
       type: [String],
       required: false,
     },
+    profilePicIndex: {
+      type: String,
+      required: false,
+    },
+    messages: {
+      type: [
+        {
+          messageCreatedAt: Date,
+          senderId: String,
+          messageData: {
+            shareNote: String,
+            coinId: String,
+            coinName: String,
+          },
+        },
+      ],
+      required: false,
+      timestamps: true,
+    },
   },
   { timestamps: true }
 );

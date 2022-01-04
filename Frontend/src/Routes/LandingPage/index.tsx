@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Redirect } from "react-router-dom";
 
-import { logo } from "../../utils";
+import { darkLogo } from "utils";
 
 const LandingPage = () => {
   const [timedOut, setTimedOut] = React.useState<boolean>(false);
@@ -16,7 +16,7 @@ const LandingPage = () => {
       <div className="h-screen w-screen bg-black flex justify-center items-center">
         <img
           className="object-contain h-50 w-auto pb-16"
-          src={logo}
+          src={darkLogo}
           alt="Crypto Wiz"
         />
       </div>

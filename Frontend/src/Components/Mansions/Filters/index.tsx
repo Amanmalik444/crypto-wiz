@@ -1,5 +1,6 @@
 import * as React from "react";
-import Select from "react-select";
+
+import { Selector } from "Components/Bricks";
 
 interface IProps {
   selectArray: {
@@ -17,17 +18,18 @@ const Filters: React.FC<IProps> = ({ selectArray }) => {
             setHook: any;
             options: { label: string | JSX.Element; value: string }[];
           }) => (
-            <Select
+            <Selector
               onChange={(e) => {
                 data.setHook(e?.value);
               }}
               options={data.options}
               defaultValue={data.options[0]}
-              theme={(theme) => ({
-                ...theme,
-                borderRadius: 6,
-              })}
               className="mx-3 my-2"
+              bgc="gray-50"
+              color="gray-600"
+              colorh="gray-800"
+              border="gray-400"
+              borderh="gray-600"
             />
           )
         )}

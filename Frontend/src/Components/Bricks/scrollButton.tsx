@@ -14,7 +14,7 @@ const Button: React.FC = () => {
   };
 
   const movePage = () => {
-    if (direction == "up") {
+    if (direction === "up") {
       window.scrollTo(0, 0);
     } else {
       window.scrollTo(0, document.body.scrollHeight);

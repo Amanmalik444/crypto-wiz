@@ -7,22 +7,19 @@ require("./utils/passport")(passport);
 
 const app = express();
 const PORT = process.env.PORT || 8000;
-const registerRoute = require("./routes/register");
 const favouriteRoute = require("./routes/favourite");
 const profileRoute = require("./routes/profile");
 const connectRoute = require("./routes/connect");
-const loginRoute = require("./routes/login");
+const messageRoute = require("./routes/message");
+const credentialsRoute = require("./routes/credentials");
 
 app.use(passport.initialize());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
-//login route
-app.use("/login", loginRoute);
-
-//register route
-app.use("/register", registerRoute);
+//credentials route
+app.use("/credentials", credentialsRoute);
 
 //file route
 app.use(
@@ -43,6 +40,13 @@ app.use(
   "/connect",
   passport.authenticate("jwt", { session: false }),
   connectRoute
+);
+
+// message route
+app.use(
+  "/message",
+  passport.authenticate("jwt", { session: false }),
+  messageRoute
 );
 
 mongoose.connect(

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Button } from ".";
+import { Button } from "Components/Bricks";
 
 interface IProps {
   className?: string;
@@ -17,7 +17,14 @@ const Dropdown: React.FC<IProps> = ({
   const [openDrop, setOpenDrop] = React.useState<boolean>(false);
   return (
     <>
-      <div className={`relative inline-block text-left ${className}`}>
+      <div className={`relative text-left ${className}`}>
+        <div
+          className={`${openDrop ? "block" : "invisible"} z-20 antialiased
+          bottom-0 top-0 right-0 left-0 fixed`}
+          onClick={() => {
+            setOpenDrop(false);
+          }}
+        />
         <div
           className="cursor-pointer shadow-sm"
           onClick={() => {
@@ -26,9 +33,11 @@ const Dropdown: React.FC<IProps> = ({
         >
           {dropImage ? (
             <img
-              className="rounded-full w-8 h-8 transition duration-200 ease-out
-            border-2 border-gray-500 hover:opacity-95 hover:border-gray-300"
+              className={`rounded-full w-9 h-9  ${
+                openDrop ? "ring-2 ring-gray-100" : "ring-1 ring-gray-500"
+              }`}
               src={dropImage}
+              alt="Dropdown"
             />
           ) : (
             <Button
@@ -43,13 +52,7 @@ const Dropdown: React.FC<IProps> = ({
             </Button>
           )}
         </div>
-        <div
-          className={`${openDrop ? "block" : "invisible"} z-20 antialiased
-          bottom-0 top-0 right-0 left-0 fixed`}
-          onClick={() => {
-            setOpenDrop(false);
-          }}
-        />
+
         <div
           className={`${
             openDrop ? "block scale-100 animate-expandlg" : "invisible scale-50"

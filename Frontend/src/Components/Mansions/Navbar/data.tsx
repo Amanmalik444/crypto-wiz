@@ -7,11 +7,17 @@ interface IParams {
 }
 
 const useData = (history: IParams["history"]) => {
-  const [status, setStatus] = React.useState<string>("Offline");
+  const [status, setStatus] = React.useState<
+    "Online" | "Offline" | "Connecting!"
+  >("Offline");
   const [connectModalVisibile, setConnectModalVisibility] =
+    React.useState<boolean>(false);
+  const [messageModalVisibile, setMessageModalVisibility] =
     React.useState<boolean>(false);
   const [settingsModalVisibile, setSettingsModalVisibility] =
     React.useState<boolean>(false);
+
+  const isLoggedIn = Boolean(localStorage.getItem("jwt"));
 
   React.useEffect(() => {
     toast.loading(`Connecting`, { id: "status" });
@@ -37,22 +43,26 @@ const useData = (history: IParams["history"]) => {
   }, []);
 
   const Logout = () => {
-    toast.success(
-      `${
-        localStorage.getItem("jwt") ? "Logged Out" : "Please login to continue"
-      }`,
-      { duration: 4000 }
-    );
+    toast.success(`${isLoggedIn ? "Logged Out" : "Please login to continue"}`, {
+      duration: 4000,
+    });
     history.push(`/`);
     localStorage.setItem("jwt", "");
     localStorage.setItem("user", "");
   };
 
-  const states = { status, connectModalVisibile, settingsModalVisibile };
+  const states = {
+    status,
+    messageModalVisibile,
+    connectModalVisibile,
+    settingsModalVisibile,
+    isLoggedIn,
+  };
 
   return {
     Logout,
     states,
+    setMessageModalVisibility,
     setConnectModalVisibility,
     setSettingsModalVisibility,
   };

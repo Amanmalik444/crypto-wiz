@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { Loader } from "Components/Bricks";
+
 interface IProps {
   bgc?: string;
   bgch?: string;
@@ -16,10 +18,10 @@ interface IProps {
 }
 
 const Button: React.FC<IProps> = ({
-  bgc = "white",
-  bgch = "gray-800",
-  color = "gray-700",
-  colorh = "white",
+  bgc = "",
+  bgch = "",
+  color = "",
+  colorh = "",
   outline = true,
   disabled = false,
   loading = false,
@@ -35,7 +37,7 @@ const Button: React.FC<IProps> = ({
     <button
       type={type}
       className={`${outline && `border border-${bgch}`} bg-${
-        disabled || loading ? "gray-200" : bgc
+        disabled ? "gray-200" : bgc
       } text-${color} ${
         rounded && `rounded-${rounded}`
       } transition duration-200 ease select-none ${
@@ -56,8 +58,11 @@ const Button: React.FC<IProps> = ({
       }}
       onAnimationEnd={() => setClickAnimation(false)}
     >
-      {loading && <i className="bx bx-loader-alt bx-spin mr-2" />}
-      {children}
+      {loading ? (
+        <Loader size="2" width="8" color={color} className="mt-1" />
+      ) : (
+        children
+      )}
     </button>
   );
 };

@@ -6,15 +6,23 @@ import {
   dayOptionsCoinPage,
   categoriesNews,
   projectTypes,
-} from "./optionsForSelectors";
-import logo from "./logo.gif";
-import userImg from "./user.png";
-import khaby from "./khabyBro.jpg";
+} from "utils/optionsForSelectors";
+import logo from "utils/logo.gif";
+import darkLogo from "utils/Logos/darkLogo.gif";
+import lightLogo from "utils/Logos/lightLogo.gif";
+import staticLogo from "utils/Logos/staticLogo.png";
+import userImg from "utils/user.png";
+import khaby from "utils/khabyBro.jpg";
+
+import { profilePics } from "utils/ProfilePics";
 
 export {
   logo,
-  userImg,
+  darkLogo,
+  lightLogo,
+  staticLogo,
   khaby,
+  userImg,
   convertToLabelValuePair,
   currencies,
   orderOptionsCoinMarket,
@@ -22,4 +30,5 @@ export {
   dayOptionsCoinPage,
   categoriesNews,
   projectTypes,
+  profilePics,
 };

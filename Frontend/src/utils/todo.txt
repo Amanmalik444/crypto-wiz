@@ -1,12 +1,9 @@
 
 
-TODO: show followers in users tab
+TODO: currency selector shows inr even in changed state
 
-TODO: bug in updateProfile -change name refresh, change userName reLogin (fixable by setting user on redux)
-
-TODO: new navbar
-
-TODO: avoiding fetching all details in dashboard network tab
+TODO: bug in updateProfile / same with profile pic change
+    -change name refresh, change userName reLogin (fixable by setting user on redux)
 
 TODO: coin market - tabular view
 
@@ -31,3 +28,5 @@ TODO: improve clicking on card to open details
 TODO: liv icons
 
 TODO: upvote downvote system
+
+TODO: config have animations

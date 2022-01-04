@@ -1,51 +1,91 @@
 import toast from "react-hot-toast";
 import moment from "moment";
+import { useHistory } from "react-router-dom";
 
-import useData from "./data";
-import { Spinner, NoDataFetched } from "../../Components/Bricks";
-import { Filters, Pagination } from "../../Components/Mansions";
+import useData from "Routes/StatusUpdates/data";
+import { Loader, NoDataFetched, Button } from "Components/Bricks";
+import { Filters, Pagination } from "Components/Mansions";
 
 const StatusUpdates = () => {
   const { states, setProjectType, setPage, setCategory } = useData();
 
   const { data, loading, page, categoriesNews, projectTypes } = states;
 
-  console.log(data);
+  const history = useHistory();
 
   return (
     <div className="pt-20 w-full bg-gray-200 flex flex-col flex-wrap items-center justify-center">
       <Filters
         selectArray={[
-          { setHook: setProjectType, options: projectTypes },
           { setHook: setCategory, options: categoriesNews },
+          { setHook: setProjectType, options: projectTypes },
         ]}
       />
       {loading ? (
-        <Spinner height="4xl" className="my-60" />
+        <Loader size="3" width="12" className="my-64" />
       ) : data && data!.length > 0 ? (
         <div className="flex flex-col gap-8 py-5 w-full items-center justify-center">
           {data?.map((update: any) => (
-            <div className="w-11/12 rounded-xl shadow-md hover:shadow-lg">
+            <div
+              className="w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 rounded-xl 
+            shadow-md hover:shadow-lg transition duration-200 ease-out"
+            >
               <div
                 className="flex flex-row w-full items-center divide-x divide-gray-300 
-              justify-between text-sm border-8 border-white bg-gray-100
-              rounded-t-xl text-gray-400 font-semibold"
+              justify-between rounded-t-xl border-8 border-white bg-gray-100
+              text-sm text-gray-400 font-semibold capitalize py-2"
               >
                 {update.category && (
-                  <p className="px-4 my-2">Category {update.category}</p>
+                  <p className="px-4">{update.category} Category</p>
                 )}
-                {update.user && <p className="px-4 my-2">User {update.user}</p>}
-                {update.user_title && (
-                  <p className="px-4 my-2">User-Title {update.user_title}</p>
+
+                {update.project && update.project.type && (
+                  <p className="px-4">{update.project.type} Project</p>
                 )}
+
                 {update.created_at && (
-                  <p className="px-4 my-2">
-                    {moment(update.created_at).fromNow()}
-                  </p>
+                  <p className="px-4">{moment(update.created_at).fromNow()}</p>
                 )}
               </div>
-              <p className="bg-white p-4 rounded-b-xl w-full break-words">
-                {update.description || "N/A"}
+
+              <div
+                className="w-full flex flex-row justify-start items-center
+              pl-4 bg-white flex-wrap"
+              >
+                <Button
+                  rounded="lg"
+                  bgch="gray-300"
+                  bgc="gray-100"
+                  color="gray-900"
+                  colorh="black"
+                  className="flex flex-row justify-start items-center px-2 py-1"
+                  onClick={() => {
+                    history.push(`/coin/${update?.project?.id}`);
+                  }}
+                >
+                  <img src={update.project.image.small} className="h-8 w-8" />
+                  <div className="flex flex-row ml-4">
+                    <p className="text-lg font-medium">
+                      {update?.project?.name}
+                    </p>
+                    <p className="text-xs font-small">
+                      {update?.project?.symbol}
+                    </p>
+                  </div>
+                </Button>
+
+                <p className="bg-white p-4 pt-2 w-full break-words">
+                  {update.description || "N/A"}
+                </p>
+              </div>
+
+              <p
+                className="flex flex-row items-center justify-start 
+              bg-gray-100 rounded-b-xl py-2 pl-4 text-gray-500 
+              font-semibold text-sm"
+              >
+                - {update.user}
+                {update.user && update.user_title && ","} {update.user_title}
               </p>
             </div>
           ))}
@@ -54,7 +94,7 @@ const StatusUpdates = () => {
         <NoDataFetched
           errorMessage="No data fetched"
           className="py-48"
-          onClickNoData={() => {
+          onClick={() => {
             window.location.reload();
             toast.success("Refreshing Page");
           }}

@@ -1,48 +1,35 @@
 import * as React from "react";
-import Select from "react-select";
 import { connect } from "react-redux";
 import toast from "react-hot-toast";
 
-import { setCurrentCurrency as currencyAction } from "../../../../../Store/Actions/CurrencyAction";
-import { currencies, convertToLabelValuePair } from "../../../../../utils";
+import { setCurrentCurrency as currencyAction } from "Store/Actions/CurrencyAction";
+import { currencies, convertToLabelValuePair } from "utils";
+import { Selector } from "Components/Bricks";
 
 type mapDispatchProps = ReturnType<typeof mapDispatchToProps>;
 
-type IProps = mapDispatchProps;
+type IProps = mapDispatchProps & { className?: string };
 
-const CurrencySelector: React.FC<IProps> = ({ setCurrentCurrency }) => {
+const CurrencySelector: React.FC<IProps> = ({
+  setCurrentCurrency,
+  className,
+}) => {
   return (
-    <Select
-      onChange={(e) => {
-        setCurrentCurrency(e?.value);
-        toast.success(`Currency set to ${e?.value}`);
-      }}
-      options={convertToLabelValuePair(currencies)}
-      defaultValue={{ label: "inr", value: "inr" }}
-      className="text-white"
-      theme={(theme) => ({
-        ...theme,
-        borderRadius: 6,
-        colors: {
-          ...theme.colors,
-          primary25: "rgba(255,255,255,0.25)",
-          primary50: "rgba(255,255,255,0.50)",
-          primary75: "rgba(255,255,255,0.75)",
-          primary: "rgba(255,255,255,1)",
-          neutral0: "rgba(25,25,25,1)",
-          neutral5: "rgba(255,255,255,0.05)",
-          neutral10: "rgba(255,255,255,0.1)",
-          neutral20: "rgba(255,255,255,0.2)",
-          neutral30: "rgba(255,255,255,0.3)",
-          neutral40: "rgba(255,255,255,0.4)",
-          neutral50: "rgba(255,255,255,0.5)",
-          neutral60: "rgba(255,255,255,0.6)",
-          neutral70: "rgba(255,255,255,0.7)",
-          neutral80: "rgba(255,255,255,0.8)",
-          neutral90: "rgba(255,255,255,0.9)",
-        },
-      })}
-    />
+    <div className={className}>
+      <Selector
+        onChange={(e) => {
+          setCurrentCurrency(e?.value);
+          toast.success(`Currency set to ${e?.value}`);
+        }}
+        options={convertToLabelValuePair(currencies)}
+        defaultValue={{ label: "inr", value: "inr" }}
+        bgc="gray-900"
+        color="gray-300"
+        colorh="gray-100"
+        border="gray-600"
+        borderh="gray-500"
+      />
+    </div>
   );
 };
 

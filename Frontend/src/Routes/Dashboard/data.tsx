@@ -13,15 +13,45 @@ const useData = () => {
   const [followersNumber, setFollowersNumber] =
     React.useState<IState["followersNumber"]>(0);
   const [loading, setLoading] = React.useState<IState["loading"]>(false);
+  const [connectModalVisibile, setConnectModalVisibility] =
+    React.useState<boolean>(false);
+  const [profilePicsModalVisibile, setProfilePicsModalVisibility] =
+    React.useState<boolean>(false);
+  const [defaultTab, setDefaultTab] = React.useState<
+    "Follow" | "Requests" | "Followers"
+  >("Follow");
 
-  let userId = JSON.parse(localStorage.getItem("user") as string)._id;
+  const user = JSON.parse(localStorage.getItem("user") as string);
+
+  const onProfilePicClick = (profilePicIndex: number) => {
+    axios
+      .post(
+        `${process.env.REACT_APP_SERVER_LINK}/profile/updateProfilePic`,
+        { userId: user._id, profilePicIndex },
+        {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("jwt") as string),
+          },
+        }
+      )
+      .then((res: any) => {
+        console.log(res.data);
+        setProfilePicsModalVisibility(false);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        toast.success("Profile Pic changed successfully");
+      })
+      .catch(() => {
+        toast.error("An error occured");
+        setLoading(false);
+      });
+  };
 
   React.useEffect(() => {
     setLoading(true);
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/favourite/fetchByUserId`,
-        { userId },
+        `${process.env.REACT_APP_SERVER_LINK}/profile/fetchFollowersAndFavouritesByUserId`,
+        { userId: user._id },
         {
           headers: {
             Authorization: JSON.parse(localStorage.getItem("jwt") as string),
@@ -39,9 +69,23 @@ const useData = () => {
       });
   }, []);
 
-  const states = { favData, loading, followersNumber };
+  const states = {
+    favData,
+    loading,
+    followersNumber,
+    connectModalVisibile,
+    profilePicsModalVisibile,
+    defaultTab,
+    user,
+  };
 
-  return { states };
+  return {
+    states,
+    onProfilePicClick,
+    setConnectModalVisibility,
+    setProfilePicsModalVisibility,
+    setDefaultTab,
+  };
 };
 
 export default useData;

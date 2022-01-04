@@ -1,7 +1,8 @@
 import * as React from "react";
 import toast from "react-hot-toast";
 
-import PageNumberIndicator from "./pageNumberIndicator";
+import PageNumberIndicator from "Components/Mansions/Pagination/pageNumberIndicator";
+import InputPageNumber from "Components/Mansions/Pagination/inputPageNumber";
 
 interface IProps {
   setPage: any;
@@ -24,9 +25,9 @@ const Filters: React.FC<IProps> = ({ setPage, page = 1, className = "" }) => {
   return (
     <div
       className={`w-full p-4 flex items-center justify-between 
-      border-gray-200 sm:px-6 ${className}`}
+      border-gray-200 md:px-6 ${className}`}
     >
-      <div className="text-sm font-medium text-gray-700 flex-1 flex justify-between items-center sm:hidden">
+      <div className="text-sm font-medium text-gray-700 flex-1 flex justify-between items-center md:hidden">
         <p
           onClick={previous}
           className="cursor-pointer bg-white hover:bg-gray-100 rounded-lg
@@ -34,7 +35,7 @@ const Filters: React.FC<IProps> = ({ setPage, page = 1, className = "" }) => {
         >
           Previous
         </p>
-        <p className="cursor-default">Page {page}</p>
+        <InputPageNumber page={page} setPage={setPage} />
         <p
           onClick={next}
           className="cursor-pointer bg-white hover:bg-gray-100 rounded-lg
@@ -43,12 +44,9 @@ const Filters: React.FC<IProps> = ({ setPage, page = 1, className = "" }) => {
           Next
         </p>
       </div>
-      <div className="hidden sm:flex-1 sm:flex flex-wrap items-end justify-between">
-        <p className="text-sm text-gray-700 m-4">
-          Showing <b>{(page - 1) * 24 + 1}</b> to <b>{page * 24}</b> of{" "}
-          <b>4,750</b> results
-        </p>
-        <nav
+      <div className="hidden md:flex-1 md:flex flex-wrap items-end justify-end">
+        <InputPageNumber page={page} setPage={setPage} />
+        <div
           className="cursor-pointer bg-white relative flex flex-row
           rounded-md shadow-sm -space-x-px text-gray-500 text-sm font-medium m-4"
           aria-label="Pagination"
@@ -87,7 +85,7 @@ const Filters: React.FC<IProps> = ({ setPage, page = 1, className = "" }) => {
             className="bx bx-chevrons-right text-2xl p-2 rounded-r-md 
             border border-gray-300 hover:bg-gray-100"
           />
-        </nav>
+        </div>
       </div>
     </div>
   );

@@ -1,13 +1,14 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { Toast, Footer, ScrollButton } from "../Components/Bricks";
-import LandingPage from "./LandingPage";
-import Credentials from "./Credentials";
-import { Navbar } from "../Components/Mansions";
-import CoinMarket from "./CoinMarket";
-import DashPreview from "./Dashboard/dashPreview";
-import StatusUpdates from "./StatusUpdates";
-import CoinPage from "./CoinPage";
+import CoinPage from "Routes/CoinPage";
+import { Navbar } from "Components/Mansions";
+import LandingPage from "Routes/LandingPage";
+import Credentials from "Routes/Credentials";
+import CoinMarket from "Routes/CoinMarket";
+import StatusUpdates from "Routes/StatusUpdates";
+import DashPreview from "Routes/Dashboard/Components/DashPreview/dashPreview";
+
+import { Toast, Footer, ScrollButton } from "Components/Bricks";
 
 const Routes = () => {
   return (
@@ -17,11 +18,11 @@ const Routes = () => {
         component={Navbar}
       />
       <Switch>
-        <Route path="/dashboard" exact component={DashPreview} />
+        <Route path="/credentials" exact component={Credentials} />
         <Route path="/market" exact component={CoinMarket} />
+        <Route path="/dashboard" exact component={DashPreview} />
         <Route path="/statusUpdates" exact component={StatusUpdates} />
         <Route path="/coin/:coinId" exact component={CoinPage} />
-        <Route path="/credentials" exact component={Credentials} />
         <Route path="/" component={LandingPage} />
       </Switch>
       <Route

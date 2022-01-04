@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import ReactApexChart from "react-apexcharts";
 
-import useData from "./data";
-import { Spinner } from "../../../../Components/Bricks";
-import GraphOptions from "./GraphOptions";
+import useData from "Routes/CoinPage/Components/OHLCGraph/data";
+import { Loader } from "Components/Bricks";
+import GraphOptions from "Routes/CoinPage/Components/OHLCGraph/GraphOptions";
 
 type mapStateProps = ReturnType<typeof mapStateToProps>;
 
@@ -24,20 +24,22 @@ const OHLCGraph: React.FC<IProps> = ({
   return (
     <div
       className="flex flex-col items-center justify-center 
-    h-full w-full py-10 mb-6"
+      w-full py-10 my-6"
     >
-      <GraphOptions setDays={setDays} setType={setType} />
+      <GraphOptions setDays={setDays} setType={setType} type={type} />
       {loading ? (
-        <div className="h-72 sm:h-96 flex align-center justify-center">
-          <Spinner color="gray-900" height="4xl" />
-        </div>
+        <Loader
+          size="3"
+          width="12"
+          className="w-full flex align-center justify-center my-48"
+        />
       ) : (
         <ReactApexChart
           series={series}
           // @ts-ignore
           options={options}
           type={type}
-          className="w-full sm:w-3/4 md:w-1/2 h-72 sm:h-96 py-4"
+          className="w-full sm:w-3/4 md:w-1/2 py-4 h-96"
           width={"100%"}
           height={"100%"}
         />

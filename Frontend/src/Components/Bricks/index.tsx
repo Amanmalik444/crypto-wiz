@@ -12,6 +12,9 @@ import ScrollButton from "./ScrollButton";
 import NoDataFetched from "./NoDataFetched";
 import Dropdown from "./Dropdown";
 import Selector from "./Selector";
+import Toggle from "./Toggle";
+import Loader from "./Loader";
+import Tooltip from "./Tooltip";
 
 export {
   Button,
@@ -28,4 +31,7 @@ export {
   TabSwitch,
   Dropdown,
   Selector,
+  Toggle,
+  Loader,
+  Tooltip,
 };

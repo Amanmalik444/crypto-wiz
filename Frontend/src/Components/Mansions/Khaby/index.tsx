@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 
-import { khaby } from "../../../utils";
-import { Button } from "../../Bricks";
+import { khaby } from "utils";
+import { Button } from "Components/Bricks";
 
 const Khaby = () => {
   const history = useHistory();

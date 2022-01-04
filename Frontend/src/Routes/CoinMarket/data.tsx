@@ -2,7 +2,7 @@ import * as React from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-import { orderOptionsCoinMarket, categoriesCoinMarket } from "../../utils";
+import { orderOptionsCoinMarket, categoriesCoinMarket } from "utils";
 
 interface IState {
   data: [];
@@ -53,20 +53,22 @@ const useData = (currency: string | undefined) => {
   };
 
   React.useEffect(() => {
-    fetchFavData();
+    if (localStorage.getItem("jwt")) {
+      fetchFavData();
+    }
   }, []);
 
   React.useEffect(() => {
     setLoading(true);
-    if (flagNumberFavData !== 0) {
+    if (flagNumberFavData !== 0 && localStorage.getItem("jwt")) {
       setFlagNumberFavData(0);
       fetchFavData();
     }
     axios
       .get(
-        `https://api.coingecko.com/api/v3/coins/markets?per_page=24&sparkline=false
-        ${category !== "all_cat" ? `&category=${category}` : ""}
-        &vs_currency=${currency}&order=${order}&page=${page}`
+        `https://api.coingecko.com/api/v3/coins/markets?per_page=15&sparkline=false
+        &vs_currency=${currency}&order=${order}&page=${page}
+        ${category !== "all_cat" ? `&category=${category}` : ""}`
       )
       .then((res: any) => {
         setData(res.data);

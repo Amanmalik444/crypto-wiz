@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import toast from "react-hot-toast";
 
-import { Spinner, NoDataFetched } from "../../Components/Bricks";
-import { CoinCard, Filters, Pagination } from "../../Components/Mansions";
-import useData from "./data";
+import { Loader, NoDataFetched } from "Components/Bricks";
+import { CoinCard, Filters, Pagination } from "Components/Mansions";
+import useData from "Routes/CoinMarket/data";
 
 type mapStateProps = ReturnType<typeof mapStateToProps>;
 
@@ -31,9 +31,9 @@ const CoinMarket: React.FC<IProps> = ({ currency = "inr" }) => {
         ]}
       />
       {loading ? (
-        <Spinner height="4xl" className="my-60" />
+        <Loader size="3" width="12" className="my-64" />
       ) : data && data!.length > 0 ? (
-        <div className="flex flex flex-wrap items-center justify-center">
+        <div className="flex flex-wrap items-center justify-center">
           {data?.map(
             (cardData: {
               name: string | undefined;
@@ -59,7 +59,7 @@ const CoinMarket: React.FC<IProps> = ({ currency = "inr" }) => {
         <NoDataFetched
           errorMessage="No data fetched"
           className="py-48"
-          onClickNoData={() => {
+          onClick={() => {
             window.location.reload();
             toast.success("Refreshing Page");
           }}

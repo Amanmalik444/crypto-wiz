@@ -1,8 +1,8 @@
 import toast from "react-hot-toast";
 
-import Details from "./Components/details";
-import FavouriteIcon from "./Components/favouriteIcon";
-import ShareIcon from "./Components/shareIcon";
+import Details from "Components/Mansions/CoinCard/Components/details";
+import FavouriteIcon from "Components/Mansions/CoinCard/Components/favouriteIcon";
+import ShareIcon from "Components/Mansions/CoinCard/Components/shareIcon";
 
 interface IProps {
   name: string | undefined;
@@ -55,7 +55,7 @@ const CoinCard = ({
           />
         ) : (
           <i
-            className="bx bx-question-mark cursor-pointer text-gray-800"
+            className="bx bxs-heart cursor-pointer text-red-500 opacity-25"
             style={{
               textShadow:
                 "0 0px 3px rgba(255,255,255,0.5), 0 0px 1px rgba(255,255,255,1)",

@@ -2,7 +2,7 @@ import * as React from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-import { categoriesNews, projectTypes } from "../../utils";
+import { categoriesNews, projectTypes } from "utils";
 
 // interface IParams {
 //   history: { push: (url: string) => void };

@@ -2,8 +2,8 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import toast from "react-hot-toast";
 
-import { Spinner, NoDataFetched } from "../../../../Components/Bricks";
-import { CoinCard } from "../../../../Components/Mansions";
+import { Loader, NoDataFetched } from "Components/Bricks";
+import { CoinCard } from "Components/Mansions";
 
 type mapStateProps = ReturnType<typeof mapStateToProps>;
 
@@ -21,7 +21,7 @@ const FavouriteList: React.FC<IProps> = ({
       id="favouriteList"
     >
       {loading ? (
-        <Spinner height="4xl" className="my-28" />
+        <Loader size="3" width="12" className="my-48" />
       ) : data.length > 0 ? (
         data.map(
           (fav: {
@@ -48,7 +48,7 @@ const FavouriteList: React.FC<IProps> = ({
         )
       ) : (
         <NoDataFetched
-          onClickNoData={() => {
+          onClick={() => {
             history.push("/market");
             toast.success("Use Market to select Coins");
           }}
