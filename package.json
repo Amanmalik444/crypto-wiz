@@ -2,5 +2,9 @@
   "scripts": {
     "client": "cd Client && npm start",
     "server": "cd Server && npm start"
+  },
+  "dependencies": {
+    "my-app": "file:client",
+    "server": "file:server"
   }
 }
