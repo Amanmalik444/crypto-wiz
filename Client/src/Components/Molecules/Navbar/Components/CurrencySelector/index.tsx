@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 
 import { setCurrentCurrency as currencyAction } from "Store/Actions/CurrencyAction";
 import { currencies, convertToLabelValuePair } from "utils";
-import { Selector } from "Components/Bricks";
+import { Selector } from "Components/Atoms";
 
 type mapDispatchProps = ReturnType<typeof mapDispatchToProps>;
 

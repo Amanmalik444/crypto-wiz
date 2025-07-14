@@ -1,4 +1,4 @@
-import { Modal, ModalBody, ModalHeader } from "Components/Bricks";
+import { Modal, ModalBody, ModalHeader } from "Components/Atoms";
 import { profilePics } from "utils";
 
 interface IProps {

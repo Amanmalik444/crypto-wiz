@@ -1,7 +1,7 @@
 import * as React from "react";
 import moment from "moment";
 
-import { Button, Tooltip } from "Components/Bricks";
+import { Button, Tooltip } from "Components/Atoms";
 import { ConnectModal, ProfilePicsModal } from "Modals";
 import { profilePics } from "utils";
 

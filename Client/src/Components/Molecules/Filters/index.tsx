@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Selector } from "Components/Bricks";
+import { Selector } from "Components/Atoms";
 
 interface IProps {
   selectArray: {

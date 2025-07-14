@@ -1,6 +1,6 @@
 import { Redirect } from "react-router-dom";
 
-import { Button } from "Components/Bricks";
+import { Button } from "Components/Atoms";
 import { staticLogo, profilePics } from "utils";
 import useData from "Routes/Credentials/data";
 import { ProfilePicsModal } from "Modals";

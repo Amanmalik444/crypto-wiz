@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Button } from "Components/Bricks";
+import { Button } from "Components/Atoms";
 
 interface IProps {
   className?: string;

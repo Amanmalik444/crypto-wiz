@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { ShareModal } from "Modals";
-import { Tooltip } from "Components/Bricks";
+import { Tooltip } from "Components/Atoms";
 
 interface IProps {
   coinName?: string;

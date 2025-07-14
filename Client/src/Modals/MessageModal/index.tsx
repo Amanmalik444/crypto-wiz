@@ -11,7 +11,7 @@ import {
   Loader,
   NoDataFetched,
   Tooltip,
-} from "Components/Bricks";
+} from "Components/Atoms";
 import { profilePics } from "utils";
 
 interface IProps {

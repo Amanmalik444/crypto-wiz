@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import toast from "react-hot-toast";
 
-import { Loader, NoDataFetched } from "Components/Bricks";
-import { CoinCard, Filters, Pagination } from "Components/Mansions";
+import { Loader, NoDataFetched } from "Components/Atoms";
+import { CoinCard, Filters, Pagination } from "Components/Molecules";
 import useData from "Routes/CoinMarket/data";
 
 type mapStateProps = ReturnType<typeof mapStateToProps>;

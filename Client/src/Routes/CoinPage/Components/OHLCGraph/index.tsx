@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import ReactApexChart from "react-apexcharts";
 
 import useData from "Routes/CoinPage/Components/OHLCGraph/data";
-import { Loader } from "Components/Bricks";
+import { Loader } from "Components/Atoms";
 import GraphOptions from "Routes/CoinPage/Components/OHLCGraph/GraphOptions";
 
 type mapStateProps = ReturnType<typeof mapStateToProps>;

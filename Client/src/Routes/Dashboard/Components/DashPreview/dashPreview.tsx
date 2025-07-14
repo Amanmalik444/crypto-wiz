@@ -1,4 +1,4 @@
-import Khaby from "Components/Mansions/Khaby";
+import Khaby from "Components/Molecules/Khaby";
 import Dashboard from "Routes/Dashboard";
 
 const DashPreview: React.FC = () => {

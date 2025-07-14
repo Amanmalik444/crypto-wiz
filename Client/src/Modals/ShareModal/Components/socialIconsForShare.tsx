@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Tooltip } from "Components/Bricks";
+import { Tooltip } from "Components/Atoms";
 
 interface IProps {
   shareNote: string;

@@ -3,8 +3,8 @@ import moment from "moment";
 import { useHistory } from "react-router-dom";
 
 import useData from "Routes/StatusUpdates/data";
-import { Loader, NoDataFetched, Button } from "Components/Bricks";
-import { Filters, Pagination } from "Components/Mansions";
+import { Loader, NoDataFetched, Button } from "Components/Atoms";
+import { Filters, Pagination } from "Components/Molecules";
 
 const StatusUpdates = () => {
   const { states, setProjectType, setPage, setCategory } = useData();

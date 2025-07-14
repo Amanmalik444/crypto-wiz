@@ -3,7 +3,7 @@ import moment from "moment";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-import { Button } from "Components/Bricks";
+import { Button } from "Components/Atoms";
 
 interface IProps {
   name: string;

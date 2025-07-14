@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Loader } from "Components/Bricks";
+import { Loader } from "Components/Atoms";
 
 interface IProps {
   bgc?: string;

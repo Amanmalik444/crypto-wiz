@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import { Loader } from "Components/Bricks";
+import { Loader } from "Components/Atoms";
 import DetailCard from "Routes/CoinPage/Components/DetailCard";
 import Stats from "Routes/CoinPage/Components/Stats";
 import Description from "Routes/CoinPage/Components/Description";

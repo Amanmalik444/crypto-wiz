@@ -1,7 +1,7 @@
 import * as React from "react";
 import toast from "react-hot-toast";
 
-import { Modal, ModalBody, ModalHeader } from "Components/Bricks";
+import { Modal, ModalBody, ModalHeader } from "Components/Atoms";
 import ProfileEditForm from "Modals/SettingsModal/Components/profileEditForm";
 
 interface IProps {

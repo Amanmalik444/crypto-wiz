@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import CoinPage from "Routes/CoinPage";
-import { Navbar } from "Components/Mansions";
+import { Navbar } from "Components/Molecules";
 import LandingPage from "Routes/LandingPage";
 import Credentials from "Routes/Credentials";
 import CoinMarket from "Routes/CoinMarket";
 import StatusUpdates from "Routes/StatusUpdates";
 import DashPreview from "Routes/Dashboard/Components/DashPreview/dashPreview";
 
-import { Toast, Footer, ScrollButton } from "Components/Bricks";
+import { Toast, Footer, ScrollerButton } from "Components/Atoms";
 
 const Routes = () => {
   return (
@@ -31,7 +31,7 @@ const Routes = () => {
       />
       <Route
         path={["/dashboard", "/market", "/coin/:coinId", "/statusUpdates"]}
-        component={ScrollButton}
+        component={ScrollerButton}
       />
       <Toast />
     </Router>

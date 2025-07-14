@@ -2,7 +2,7 @@ import * as React from "react";
 import toast from "react-hot-toast";
 
 import { dayOptionsCoinPage } from "utils";
-import { Selector, Toggle } from "Components/Bricks";
+import { Selector, Toggle } from "Components/Atoms";
 
 interface IProps {
   setDays: any;

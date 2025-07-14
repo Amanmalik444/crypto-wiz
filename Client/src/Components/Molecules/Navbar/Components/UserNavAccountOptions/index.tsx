@@ -2,7 +2,7 @@ import * as React from "react";
 import toast from "react-hot-toast";
 
 import { profilePics } from "utils";
-import { Dropdown } from "Components/Bricks";
+import { Dropdown } from "Components/Atoms";
 import { SettingsModal, ConnectModal, MessageModal } from "Modals";
 
 interface IProps {

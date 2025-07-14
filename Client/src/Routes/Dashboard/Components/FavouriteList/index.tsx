@@ -2,8 +2,8 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import toast from "react-hot-toast";
 
-import { Loader, NoDataFetched } from "Components/Bricks";
-import { CoinCard } from "Components/Mansions";
+import { Loader, NoDataFetched } from "Components/Atoms";
+import { CoinCard } from "Components/Molecules";
 
 type mapStateProps = ReturnType<typeof mapStateToProps>;
 

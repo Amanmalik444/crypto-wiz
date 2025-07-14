@@ -1,4 +1,4 @@
-import { TextData } from "Components/Bricks";
+import { TextData } from "Components/Atoms";
 
 interface IProps {
   coingecko_rank: string;

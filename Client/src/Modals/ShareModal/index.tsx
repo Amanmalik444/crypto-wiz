@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Modal, ModalBody, ModalHeader, Loader } from "Components/Bricks";
+import { Modal, ModalBody, ModalHeader, Loader } from "Components/Atoms";
 import SocialIconsForShare from "Modals/ShareModal/Components/socialIconsForShare";
 import SendCoinsToFollowingUsers from "Modals/ShareModal/Components/sendCoinsToFollowingUsers";
 import { useData } from "Modals/ShareModal/data";

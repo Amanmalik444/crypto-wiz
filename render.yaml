@@ -1,0 +1,13 @@
+# render.yaml
+services:
+  - type: web
+    name: crypto-wiz-backend
+    env: node
+    repo: https://github.com/Amanmalik444/crypto-wiz
+    branch: main # or your actual branch name if it's not main
+    buildCommand: cd Server && npm install
+    startCommand: cd Server && npm start
+    rootDir: Server
+    envVars:
+      - key: PORT
+        value: 8000

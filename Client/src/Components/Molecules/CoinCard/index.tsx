@@ -1,8 +1,8 @@
 import toast from "react-hot-toast";
 
-import Details from "Components/Mansions/CoinCard/Components/details";
-import FavouriteIcon from "Components/Mansions/CoinCard/Components/favouriteIcon";
-import ShareIcon from "Components/Mansions/CoinCard/Components/shareIcon";
+import Details from "Components/Molecules/CoinCard/Components/details";
+import FavouriteIcon from "Components/Molecules/CoinCard/Components/favouriteIcon";
+import ShareIcon from "Components/Molecules/CoinCard/Components/shareIcon";
 
 interface IProps {
   name: string | undefined;

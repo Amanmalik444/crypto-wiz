@@ -1,8 +1,8 @@
 import * as React from "react";
 import toast from "react-hot-toast";
 
-import PageNumberIndicator from "Components/Mansions/Pagination/pageNumberIndicator";
-import InputPageNumber from "Components/Mansions/Pagination/inputPageNumber";
+import PageNumberIndicator from "Components/Molecules/Pagination/pageNumberIndicator";
+import InputPageNumber from "Components/Molecules/Pagination/inputPageNumber";
 
 interface IProps {
   setPage: any;

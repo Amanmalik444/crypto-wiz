@@ -2,7 +2,7 @@ import * as React from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-import { Button } from "Components/Bricks";
+import { Button } from "Components/Atoms";
 
 interface IProps {
   goBack?: () => void;

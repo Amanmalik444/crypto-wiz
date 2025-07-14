@@ -1,7 +1,7 @@
 import * as React from "react";
 import ReactHtmlParser from "react-html-parser";
 
-import { Button } from "Components/Bricks";
+import { Button } from "Components/Atoms";
 
 interface IProps {
   categories: any;

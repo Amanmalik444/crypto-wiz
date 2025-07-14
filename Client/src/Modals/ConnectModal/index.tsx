@@ -9,7 +9,7 @@ import {
   Loader,
   TabSwitch,
   NoDataFetched,
-} from "Components/Bricks";
+} from "Components/Atoms";
 import Users from "Modals/ConnectModal/Components/users";
 
 interface IProps {

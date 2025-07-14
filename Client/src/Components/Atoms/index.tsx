@@ -8,7 +8,7 @@ import TextData from "./TextData";
 import Footer from "./Footer";
 import Toast from "./Toast";
 import TabSwitch from "./TabSwitch";
-import ScrollButton from "./ScrollButton";
+import ScrollerButton from "./ScrollerButton";
 import NoDataFetched from "./NoDataFetched";
 import Dropdown from "./Dropdown";
 import Selector from "./Selector";
@@ -26,7 +26,7 @@ export {
   ModalHeader,
   Footer,
   Toast,
-  ScrollButton,
+  ScrollerButton,
   NoDataFetched,
   TabSwitch,
   Dropdown,

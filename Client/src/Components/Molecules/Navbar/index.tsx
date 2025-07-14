@@ -3,10 +3,10 @@ import { useHistory } from "react-router-dom";
 
 import useData from "./data";
 import { staticLogo } from "utils";
-import CurrencySelector from "Components/Mansions/Navbar/Components/CurrencySelector";
-import UserNavAccountOptions from "Components/Mansions/Navbar/Components/UserNavAccountOptions";
-import StatusIndicator from "Components/Mansions/Navbar/Components/StatusIndicator";
-import NavLinks from "Components/Mansions/Navbar/Components/Navlinks";
+import CurrencySelector from "Components/Molecules/Navbar/Components/CurrencySelector";
+import UserNavAccountOptions from "Components/Molecules/Navbar/Components/UserNavAccountOptions";
+import StatusIndicator from "Components/Molecules/Navbar/Components/StatusIndicator";
+import NavLinks from "Components/Molecules/Navbar/Components/Navlinks";
 
 const Navbar: React.FC = () => {
   const [leftPanelVisible, setLeftPanelVisibility] =
