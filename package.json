@@ -5,6 +5,8 @@
   },
   "dependencies": {
     "my-app": "file:client",
+    "postcss": "^8.5.6",
+    "postcss-safe-parser": "^7.0.1",
     "server": "file:server"
   }
 }
