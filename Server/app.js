@@ -49,6 +49,17 @@ app.use(
   messageRoute
 );
 
+const presentWorkingDir = process.cwd();
+const path = require("path");
+
+// set static folder
+app.use(express.static("../Client/build"));
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.resolve(`${presentWorkingDir}/../Client/`, "build", "index.html")
+  );
+});
+
 mongoose.connect(
   process.env.DB_CONNECTION,
   {
