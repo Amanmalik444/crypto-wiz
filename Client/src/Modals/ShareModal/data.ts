@@ -2,6 +2,8 @@ import * as React from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
+import { REACT_APP_SERVER_LINK, REACT_APP_HOSTED_LINK } from "utils";
+
 interface IProps {
   coinName?: string;
   coinId?: string;
@@ -35,7 +37,7 @@ export const useData = ({ coinName, coinId, openModal }: IProps) => {
   const user = jwtToken
     ? JSON.parse(localStorage.getItem("user") as string)
     : "";
-  const link = `${process.env.REACT_APP_HOSTED_LINK}/coin/${coinId}`;
+  const link = `${REACT_APP_HOSTED_LINK}/coin/${coinId}`;
 
   const copyLink = () => {
     navigator.clipboard
@@ -49,7 +51,7 @@ export const useData = ({ coinName, coinId, openModal }: IProps) => {
       setLoading(true);
       axios
         .post(
-          `${process.env.REACT_APP_SERVER_LINK}/connect/FetchFollowingUsers`,
+          `${REACT_APP_SERVER_LINK}/connect/FetchFollowingUsers`,
           { requestorId: user._id },
           {
             headers: {
@@ -72,7 +74,7 @@ export const useData = ({ coinName, coinId, openModal }: IProps) => {
     setLoading(true);
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/message/sendCoinsWithinApp`,
+        `${REACT_APP_SERVER_LINK}/message/sendCoinsWithinApp`,
         {
           senderId: user._id,
           recipientIds: selectedUserIds,

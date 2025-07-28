@@ -12,7 +12,7 @@ import {
   NoDataFetched,
   Tooltip,
 } from "Components/Atoms";
-import { profilePics } from "utils";
+import { profilePics, REACT_APP_SERVER_LINK } from "utils";
 
 interface IProps {
   openModal: any;
@@ -35,7 +35,7 @@ const MessageModal: React.FC<IProps> = ({ openModal, toggleModal }) => {
   const fetch = () => {
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/message/fetchMessagesForUser`,
+        `${REACT_APP_SERVER_LINK}/message/fetchMessagesForUser`,
         { userId },
         {
           headers: {
@@ -57,7 +57,7 @@ const MessageModal: React.FC<IProps> = ({ openModal, toggleModal }) => {
   const deleteMessage = (messageId: any) => {
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/message/deleteMessage`,
+        `${REACT_APP_SERVER_LINK}/message/deleteMessage`,
         { userId, messageId },
         {
           headers: {

@@ -2,7 +2,11 @@ import * as React from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-import { orderOptionsCoinMarket, categoriesCoinMarket } from "utils";
+import {
+  orderOptionsCoinMarket,
+  categoriesCoinMarket,
+  REACT_APP_SERVER_LINK,
+} from "utils";
 
 interface IState {
   data: [];
@@ -36,7 +40,7 @@ const useData = (currency: string | undefined) => {
     let userId = JSON.parse(localStorage.getItem("user") as string)._id;
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/favourite/fetchFavListUser`,
+        `${REACT_APP_SERVER_LINK}/favourite/fetchFavListUser`,
         { userId },
         {
           headers: {

@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 import { Button } from "Components/Atoms";
+import { REACT_APP_SERVER_LINK } from "utils";
 
 interface IProps {
   name: string;
@@ -33,7 +34,7 @@ const Users: React.FC<IProps> = ({
     if (openModal) {
       axios
         .post(
-          `${process.env.REACT_APP_SERVER_LINK}/connect/fetch${useCase}TabStatus`,
+          `${REACT_APP_SERVER_LINK}/connect/fetch${useCase}TabStatus`,
           { userId, toConnectId },
           {
             headers: {
@@ -54,7 +55,7 @@ const Users: React.FC<IProps> = ({
     setLoading(true);
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/connect/${type}`,
+        `${REACT_APP_SERVER_LINK}/connect/${type}`,
         { userId, toConnectId },
         {
           headers: {

@@ -2,6 +2,8 @@ import * as React from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
+import { REACT_APP_SERVER_LINK } from "utils";
+
 interface IState {
   favData: [];
   loading: boolean;
@@ -26,7 +28,7 @@ const useData = () => {
   const onProfilePicClick = (profilePicIndex: number) => {
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/profile/updateProfilePic`,
+        `${REACT_APP_SERVER_LINK}/profile/updateProfilePic`,
         { userId: user._id, profilePicIndex },
         {
           headers: {
@@ -50,7 +52,7 @@ const useData = () => {
     setLoading(true);
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/profile/fetchFollowersAndFavouritesByUserId`,
+        `${REACT_APP_SERVER_LINK}/profile/fetchFollowersAndFavouritesByUserId`,
         { userId: user._id },
         {
           headers: {

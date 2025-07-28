@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
+import { REACT_APP_SERVER_LINK } from "utils";
+
 interface IState {
   name: string;
   userName: string;
@@ -50,7 +52,7 @@ const useData = () => {
     toast.loading("Registering", { id: "register" });
     setLoading(true);
     axios
-      .post(`${process.env.REACT_APP_SERVER_LINK}/credentials/register/`, {
+      .post(`${REACT_APP_SERVER_LINK}/credentials/register/`, {
         name,
         userName,
         password,
@@ -75,7 +77,7 @@ const useData = () => {
     toast.loading("Logging In", { id: "login" });
     setLoading(true);
     axios
-      .post(`${process.env.REACT_APP_SERVER_LINK}/credentials/login/`, {
+      .post(`${REACT_APP_SERVER_LINK}/credentials/login/`, {
         userName,
         password,
       })

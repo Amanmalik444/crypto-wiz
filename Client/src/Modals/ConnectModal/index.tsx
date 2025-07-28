@@ -11,6 +11,7 @@ import {
   NoDataFetched,
 } from "Components/Atoms";
 import Users from "Modals/ConnectModal/Components/users";
+import { REACT_APP_SERVER_LINK } from "utils";
 
 interface IProps {
   openModal: any;
@@ -46,7 +47,7 @@ const ConnectModal: React.FC<IProps> = ({
   const fetch = () => {
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/connect/${activeTab}TabList`,
+        `${REACT_APP_SERVER_LINK}/connect/${activeTab}TabList`,
         { userId },
         {
           headers: {

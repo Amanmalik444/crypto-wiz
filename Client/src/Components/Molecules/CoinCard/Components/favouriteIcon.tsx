@@ -2,6 +2,8 @@ import * as React from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
+import { REACT_APP_SERVER_LINK } from "utils";
+
 interface IProps {
   id: string | undefined;
   name: string | undefined;
@@ -41,7 +43,7 @@ const FavouriteIcon = ({
     });
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/favourite/setAsFavourite`,
+        `${REACT_APP_SERVER_LINK}/favourite/setAsFavourite`,
         { userId, cardData: { id, name, image, symbol, note: "" }, favId },
         {
           headers: {
@@ -69,7 +71,7 @@ const FavouriteIcon = ({
     });
     axios
       .post(
-        `${process.env.REACT_APP_SERVER_LINK}/favourite/removeFromFavourite`,
+        `${REACT_APP_SERVER_LINK}/favourite/removeFromFavourite`,
         { userId, favId },
         {
           headers: {

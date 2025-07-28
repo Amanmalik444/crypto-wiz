@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 import { Button } from "Components/Atoms";
+import { REACT_APP_SERVER_LINK } from "utils";
 
 interface IProps {
   goBack?: () => void;
@@ -40,7 +41,7 @@ const SettingsModal: React.FC<IProps> = ({
       setLoading(true);
       axios
         .post(
-          `${process.env.REACT_APP_SERVER_LINK}/profile/updateUser`,
+          `${REACT_APP_SERVER_LINK}/profile/updateUser`,
           { updatedProfileBody },
           {
             headers: {
@@ -75,7 +76,7 @@ const SettingsModal: React.FC<IProps> = ({
       setLoading(true);
       axios
         .post(
-          `${process.env.REACT_APP_SERVER_LINK}/profile/updateUser`,
+          `${REACT_APP_SERVER_LINK}/profile/updateUser`,
           { updatedProfileBody },
           {
             headers: {

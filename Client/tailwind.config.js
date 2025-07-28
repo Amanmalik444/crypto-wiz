@@ -1,7 +1,7 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: ["./src/*/.{js,jsx,ts,tsx}", "./public/index.html"],
+  purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -70,14 +70,14 @@ module.exports = {
       ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       bounce: "bounce 1s infinite",
-      loader: 'loader 0.6s infinite alternate',
-      flip: 'flip 1s ease-out',
+      loader: "loader 0.6s infinite alternate",
+      flip: "flip 1s ease-out",
       shrink: "shrink 250ms ease-in",
       expandlg: "expandlg 250ms ease-in",
       expand: "expand 250ms ease-in",
       expandHeart: "expandHeart 250ms ease-in",
       shrinkHeart: "shrinkHeart 250ms ease-in",
-      gradient: 'gradient 15s ease infinite',
+      gradient: "gradient 15s ease infinite",
     },
     backdropBlur: (theme) => theme("blur"),
     backdropBrightness: (theme) => theme("brightness"),
@@ -498,11 +498,10 @@ module.exports = {
       loader: {
         to: {
           opacity: 0.1,
-          transform: 'translate3d(0, -100%, 0)',
-        }
+          transform: "translate3d(0, -100%, 0)",
+        },
       },
-      flip:
-      {
+      flip: {
         "0%, 100%": {
           transform: "scale(1)",
           animationTimingFunction: "cubic-bezier(0,0,0.2,1)",
@@ -514,14 +513,14 @@ module.exports = {
         },
       },
       gradient: {
-        '0%, 100%': {
-          'background-size': '200% 200%',
-          'background-position': 'left center'
+        "0%, 100%": {
+          "background-size": "200% 200%",
+          "background-position": "left center",
         },
-        '50%': {
-          'background-size': '200% 200%',
-          'background-position': 'right center'
-        }
+        "50%": {
+          "background-size": "200% 200%",
+          "background-position": "right center",
+        },
       },
       shrink: {
         "0%, 100%": { transform: "scale(1)" },

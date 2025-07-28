@@ -16,6 +16,9 @@ import khaby from "utils/khabyBro.jpg";
 
 import { profilePics } from "utils/ProfilePics";
 
+const REACT_APP_SERVER_LINK = "https://crypto-wiz-monorepo.onrender.com";
+const REACT_APP_HOSTED_LINK = "https://crypto-wiz-monorepo.onrender.com";
+
 export {
   logo,
   darkLogo,
@@ -31,4 +34,6 @@ export {
   categoriesNews,
   projectTypes,
   profilePics,
+  REACT_APP_SERVER_LINK,
+  REACT_APP_HOSTED_LINK,
 };
